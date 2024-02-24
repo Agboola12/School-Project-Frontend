@@ -10,6 +10,8 @@ import card5 from '../images/card5.png';
 import card6 from '../images/card6.png';
 import card7 from '../images/card7.png';
 import videoimage from '../images/Container.png'
+import neww from '../images/new01.jpg'
+
 
 // import videoimage from '../images/videoimage.png';
 
@@ -43,16 +45,12 @@ const Home = () => {
                     <div className="device pt-5">
                         <span > <img src={Abstract} className='me-5 ' /></span>
                         <span><img src={icon} className="" /></span>
-                        <span className="unlock">Unlock</span> <span>Your Creative Potential</span>
+                        <span className="unlock fs-5">Free your mind.</span>
 
                     </div>
-
-                    <h2 className="text-center">
-                        with Online Design and Development Courses.
-                    </h2>
-                    <smal >
-                        Learn from Industry Experts and Enhance Your Skills.
-                    </smal>
+                    <h3 className="text-center">
+                     Meditation is the foundation of any creative practice.
+                    </h3>
                 </div>
 
                 <div className="container px-4 text-center" >
@@ -69,7 +67,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="container mt-5  ">
-                    <img src={videoimage} alt="" className="w-100 mt-5" />
+                    <img src={neww} alt="" className="w-100 mt-5" />
                 </div>
 
                 {/* benefits */}
@@ -105,125 +103,6 @@ const Home = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
-                </div>
-                {/*our courses  */}
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col-lg-9 text-left'>
-                            <h1>Our Courses</h1>
-                            <p>          Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget
-                                elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget
-                                habitasse in velit fringilla feugiat senectus in.</p>
-                        </div>
-                        <div className='col-lg-3 text-right '>
-                            <button className='btn btn bg-white text-dark fw-bold text-right mt-5'>View All</button>
-                        </div>
-                    </div>
-
-                    <div className='row'>
-                        <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
-                            <div className=''>
-                                <img src={image1} alt='jkn' className='card-img-top' />
-                                <div className='d-flex mt-4 mb-4'>
-                                    <button className='btn btn-light bg-light mr-3 text-dark'>10 Weeks</button>
-                                    <button className='btn btn-light bg-light ml-3 text-dark'>Intermediate</button>
-                                    <p className='fw-bold ml-5'>By Micheal Adams</p>
-                                </div>
-                                <p className='h4'>Web Design Fundamentals</p>
-                                <p>
-                                    Learn the fundamentals of web design, including HTML, CSS, and
-                                    responsive design principles. Develop the skills to create
-                                    visually appealing and user-friendly websites.
-                                </p>
-                                <button className='btn btn bg-light w-100 fw-bold text-center text-dark'>Get it Now</button>
-                            </div>
-                        </div>
-                        <div className='col-lg-5 ml-5 shadow-sm p-5  mx-auto mb-5 bg-white rounded'>
-                            <div>
-                                <img src={image2} alt='jkn' className='card-img-top' />
-                                <div className='d-flex mt-4 mb-4'>
-                                    <button className='btn btn-light bg-light mr-3 text-dark'>6 Weeks</button>
-                                    <button className='btn btn-light bg-light ml-3 text-dark'>Intermediate</button>
-                                    <p className='h4 fw-bold'>By Emily Johnson</p>
-                                </div>
-                                <p className='h4'>UI/UX Design</p>
-                                <p>
-                                    Master the art of creating intuitive user interfaces (UI) and enhancing user experiences (UX).
-                                    Learn design principles, wireframing, prototyping, and usability testing techniques.
-                                </p>
-                                <button className='btn btn bg-light w-100 fw-bold text-center text-dark'>Get it Now</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='row'>
-                        <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
-                            <div className=''>
-                                <img src={image4} alt='jkn' className='card-img-top' />
-                                <div className='d-flex mt-4 mb-4'>
-                                    <button className='btn btn-light bg-light mr-3 text-dark'>8 Weeks</button>
-                                    <button className='btn btn-light bg-light ml-3 text-dark'>Mobile App Development</button>
-                                    <p className='fw-bold ml-5'>By By David Brown</p>
-                                </div>
-                                <p className='h4'>Front-End Web Developement</p>
-                                <p>
-                                    Dive into the world of mobile app development. Learn to build native iOS and Android
-                                    applications using industry-leading frameworks like Swift and Kotlin.
-
-                                </p>
-                                <button className='btn btn bg-light w-100 fw-bold text-center text-dark'>Get it Now</button>
-                            </div>
-                        </div>
-                        <div className='col-lg-5 ml-5 shadow-sm p-5  mx-auto mb-5 bg-white rounded'>
-                            <div>
-                                <img src={image4} alt='jkn' className='card-img-top' />
-                                <div className='d-flex mt-4 mb-4'>
-                                    <button className='btn btn-light bg-light mr-3 text-dark'>10 Weeks</button>
-                                    <button className='btn btn-light bg-light ml-3 text-dark'>Beginner</button>
-                                    <p className='h4 fw-bold'>By Sarah Thompson</p>
-                                </div>
-                                <p className='h4' >Graphic Design for Beginners</p>
-                                <p>
-                                    Discover the fundamentals of graphic design, including typography, color theory, layout design,
-                                    and image manipulation techniques. Create visually stunning designs for print and digital media.
-                                </p>
-                                <button className='btn btn bg-light w-100 fw-bold text-center text-dark'>Get it Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
-                            <div className=''>
-                                <img src={image5} alt='jkn' className='card-img-top' />
-                                <div className='d-flex mt-4 mb-4'>
-                                    <button className='btn btn-light bg-light mr-3 text-dark'>10 Weeks</button>
-                                    <button className='btn btn-light bg-light ml-3 text-dark'>Intermediate</button>
-                                    <small className='fw-bold ml-5'>By Micheal Adams</small>
-                                </div>
-                                <p className='h4'>Front-End Web Developement</p>
-                                <p>Become proficient in front-end web development. Learn HTML, CSS, JavaScript,
-                                    and popular frameworks like Bootstrap and React. Build interactive and responsive websites.
-                                </p>
-                                <button className='btn btn bg-light w-100 fw-bold text-center text-dark'>Get it Now</button>
-                            </div>
-                        </div>
-                        <div className='col-lg-5 ml-5 shadow-sm p-5  mx-auto mb-5 bg-white rounded'>
-                            <div>
-                                <img src={image6} alt='jkn' className='card-img-top' />
-                                <div className='d-flex mt-4 mb-4'>
-                                    <button className='btn btn-light bg-light mr-3 text-dark'>6 Weeks</button>
-                                    <button className='btn btn-light bg-light ml-3 text-dark'>Advance</button>
-                                    <p className='h4 fw-bold'>By Jennifer Wilson</p>
-                                </div>
-                                <p className='h4' >Advanced JavaScript</p>
-                                <p>
-                                    Take your JavaScript skills to the next level. Explore advanced concepts like closures, prototypes, asynchronous
-                                    programming, and ES6 features. Build complex applications with confidence.
-                                </p>
-                                <button className='btn btn bg-light w-100 fw-bold text-center text-dark'>Get it Now</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 {/* our testimonies */}
@@ -298,60 +177,6 @@ const Home = () => {
                                         <p>Michael K</p>
                                     </p>
                                     <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*Our Priicing   */}
-                <div className='container '>
-                    <div className='row'>
-                        <div className=' col-lg-9 text-left'>
-                            <h3>Our Pricing</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et.<br />
-                                Cras eu sit dignissim lorem nibh et.sse  in velit fringilla.</p>
-                        </div>
-                        <div className='col-lg-2'>
-                            <div className='d-flex flex-row bg-white p-3 '>
-                                {['no', 'yes'].map((item, index) => (
-                                    <div onClick={() => setTab(item)} key={index} className={`flex p-3 text-right text-dark fw-bold  mr-auto   ${item === tab ? 'bg-info' : ''}`}>
-                                        {item}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='bg-white p-5'>
-                        <div className='row'>
-                            <div className='col-lg-5 bg-light p-5 mr-5 shadow-sm'>
-                                <button className='btn btn  p-3 w-100 fw-bold text-center text-dark' style={{ backgroundColor: '#FFF9F0' }}>Free Plan</button>
-                                <p className='text-center h2 fw-bold m-5'>$0/month</p>
-                                <div className='bg-white p-5'>
-                                    <p className=' h4 text-center '>Available Features</p>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5  '>Access to selected free courses.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>No certification upon completion.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>Ad-supported platform.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>Ad-supported platform.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>Access to exclusive Pro Plan community forums.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>Early access to new courses and updates.</button>
-
-                                    <button className='btn btn w-100 fw-bold text-center text-white p-3 mt-5' style={{ backgroundColor: '#FF9500' }}>Get Started</button>
-                                </div>
-                            </div>
-                            <div className='col-lg-5 bg-light p-5 mr-5 shadow-sm'>
-                                <button className='btn btn  p-3 w-100 fw-bold text-center text-dark' style={{ backgroundColor: '#FFF9F0' }}>Free Plan</button>
-                                <p className='text-center h2 fw-bold m-5'>$0/month</p>
-                                <div className='bg-white p-5'>
-                                    <p className=' h4 text-center '>Available Features</p>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5  '>Access to selected free courses.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>No certification upon completion.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>Ad-supported platform.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>Ad-supported platform.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>Access to exclusive Pro Plan community forums.</button>
-                                    <button className='btn btn-outline-light text-dark w-100 mt-5 '>Early access to new courses and updates.</button>
-
-                                    <button className='btn btn w-100 fw-bold text-center text-white p-3 mt-5' style={{ backgroundColor: '#FF9500' }}>Get Started</button>
                                 </div>
                             </div>
                         </div>

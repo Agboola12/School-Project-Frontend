@@ -10,7 +10,7 @@ const LandNavBar = () => {
     <>
     <div className={style.body}>
         <div className={`${style.container} container mt-3 mx-auto p-2 text-center`}>
-                <p>Free Courses. Sales Ends Soon. Get It Now</p>
+                <p>Learning Today . . .  Leading Tomorrow</p>
         </div>
         <div className='container'>
 
@@ -26,9 +26,6 @@ const LandNavBar = () => {
     <ul className="navbar-nav list-line">               
         <li className="nav-item active list-line-item mr-5 ">
           <Link to="/" className="nav-link active text-center ">Home</Link>
-        </li>
-        <li className="nav-item dropdown list-line-item mr-5 " >
-          <Link to="/UI-UX" className="nav-link active text-center">Courses</Link>
         </li>
         <li className="nav-item dropdown list-line-item mr-5 " >
           <Link to="/about" className="nav-link active text-center">About Us </Link>

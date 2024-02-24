@@ -17,7 +17,6 @@ const Routing = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/UI-UX" element={<UIUX />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
 
