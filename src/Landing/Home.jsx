@@ -9,8 +9,9 @@ import card4 from '../images/card4.png';
 import card5 from '../images/card5.png';
 import card6 from '../images/card6.png';
 import card7 from '../images/card7.png';
-import videoimage from '../images/Container.png'
+// import videoimage from '../images/Container.png'
 import neww from '../images/new01.jpg'
+import teach from '../images/lectu.jpg'
 
 
 // import videoimage from '../images/videoimage.png';
@@ -105,6 +106,26 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
+
+{/* lecturer */}
+<div className='container mt-4'>
+    <div className='row '>
+        <div className='col-lg-3 shadow p-3 mx-auto text-center  mb-5 rounded'>
+            <div className='mb-3'>
+        <img src={teach} alt='iod' className='w-50' style={{borderRadius:'20%'}}/>
+            </div>
+        <div>
+            <p className='fw-bold'>Professor Adebite Hope</p>
+            <p>Physics and Mathematics</p>
+            <p>1,240 Student Tutored</p>
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+{/* end */}
                 {/* our testimonies */}
                 <div className='container mt-4'>
                     <div className='d-flex'>
