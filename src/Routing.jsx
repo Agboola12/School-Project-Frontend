@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router";
 import Home from "./Landing/Home";
 import Signup from "./Landing/Signup";
 import LogIn from "./Landing/LogIn";
-import UIUX from "./Landing/UI-UX";
 import AboutUs from "./Landing/AboutUs";
 import ContactUs from "./Landing/ContactUs";
 
