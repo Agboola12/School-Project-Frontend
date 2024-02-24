@@ -23,7 +23,7 @@ const LandNavBar = () => {
       <span className="navbar-toggler-icon"></span>
     </button>
   <div className="collapse navbar-collapse" id="sab">    
-    <ul className="navbar-nav list-line">               
+    <ul className="navbar-nav list-line mx-auto">               
         <li className="nav-item active list-line-item mr-5 ">
           <Link to="/" className="nav-link active text-center ">Home</Link>
         </li>
