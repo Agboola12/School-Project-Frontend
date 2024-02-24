@@ -1,11 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router";
+import Home from "./Landing/Home";
 
 const Routing = () => {
   return (
         <>
             <Routes>
-                    <Route path="/" element={<Landing/>}/>
+                    <Route path="/" element={<Home/>}/>
             </Routes>
     </>
   );
