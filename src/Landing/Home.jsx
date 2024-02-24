@@ -37,181 +37,206 @@ const Home = () => {
     const [tab, setTab] = useState('yes')
     return (
         <>
-        <div >
-            <LandNavBar />
-            <div className="bg-light">
+            <div >
+                <LandNavBar />
+                <div className="bg-light">
 
 
-                <div className="container   text-center">
-                    <div className="device pt-5">
-                        <span > <img src={Abstract} className='me-5 ' /></span>
-                        <span><img src={icon} className="" /></span>
-                        <span className="unlock fs-5">Free your mind.</span>
+                    <div className="container   text-center">
+                        <div className="device pt-5">
+                            <span > <img src={Abstract} className='me-5 ' /></span>
+                            <span><img src={icon} className="" /></span>
+                            <span className="unlock fs-5">Free your mind.</span>
 
-                    </div>
-                    <h3 className="text-center">
-                     Meditation is the foundation of any creative practice.
-                    </h3>
-                </div>
-
-                <div className="container px-4 text-center" >
-                    <div className="row gx-5" >
-                        <marquee behavior="scroll" direction="left" className=" mt-5 p-2" style={{ backgroundColor: 'white' }}>
-                            <img src={card1} alt="" className="p-3 " />
-                            <img src={card2} alt="" className="p-3" />
-                            <img src={card3} alt="" className="p-3" />
-                            <img src={card4} alt="" className="p-3" />
-                            <img src={card5} alt="" className="p-3" />
-                            <img src={card6} alt="" className="p-3" />
-                            <img src={card7} alt="" className="p-3" />
-                        </marquee>
-                    </div>
-                </div>
-                <div className="container mt-5  ">
-                    <img src={neww} alt="" className="w-100 mt-5" />
-                </div>
-
-                {/* benefits */}
-                <div className='container mt-5'>
-                    <div className='row'>
-                        <div className='col-lg-9'>
-                            <h3>Benefits</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget
-                                elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget
-                                habitasse in velit fringilla feugiat senectus in.
-                            </p>
                         </div>
-                        <div className='col-lg-3 text-right'>
-                            <button className='btn btn-white text-dark fw-bold text-right mt-5'>View All</button>
+                        <h3 className="text-center">
+                            Meditation is the foundation of any creative practice.
+                        </h3>
+                    </div>
+
+                    <div className="container px-4 text-center" >
+                        <div className="row gx-5" >
+                            <marquee behavior="scroll" direction="left" className=" mt-5 p-2" style={{ backgroundColor: 'white' }}>
+                                <img src={card1} alt="" className="p-3 " />
+                                <img src={card2} alt="" className="p-3" />
+                                <img src={card3} alt="" className="p-3" />
+                                <img src={card4} alt="" className="p-3" />
+                                <img src={card5} alt="" className="p-3" />
+                                <img src={card6} alt="" className="p-3" />
+                                <img src={card7} alt="" className="p-3" />
+                            </marquee>
                         </div>
                     </div>
-
-                    <div className='row mt-4'>
-                        {benefitContent.map((item, index) => (
-                            <div className='col-md-4'>
-                                <div className=' p-5  shadow-sm  mb-5 bg-white rounded'>
-                                    <div className='card-text'>
-                                        <h2 className='text-right'>{item.number}</h2>
-                                    </div>
-                                    <div className='card-title h4'>{item.header}</div>
-                                    <div className='card-text'>
-                                        {item.content}
-                                    </div>
-                                    <Link to={item.link}>
-                                        <p style={{ color: '#FF9500' }} className='text-right'><i class="  fa fa-arrow-right"></i></p>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-{/* lecturer */}
-<div className='container mt-4'>
-    <div className='row '>
-        <div className='col-lg-3 shadow p-3 mx-auto text-center  mb-5 rounded'>
-            <div className='mb-3'>
-        <img src={teach} alt='iod' className='w-50' style={{borderRadius:'20%'}}/>
-            </div>
-        <div>
-            <p className='fw-bold'>Professor Adebite Hope</p>
-            <p>Physics and Mathematics</p>
-            <p>1,240 Student Tutored</p>
-        </div>
-
-        </div>
-
-    </div>
-
-</div>
-{/* end */}
-                {/* our testimonies */}
-                <div className='container mt-4'>
-                    <div className='d-flex'>
-                        <em className='text-left'>
-                            <h3>Our Testimonials</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur. Tempus tincidunt  etiam eget elit id imperdiet et.
-                                Cras eu sit dignissim <br />lorem nibh et. Ac cum eget habitasse  in velit fringilla feugiat senectus in.</p>
-                        </em>
-                        <button className='btn btn bg-white text-dark fw-bold text-right mt-5 ml-auto'>View All</button>
+                    <div className="container mt-5  ">
+                        <img src={neww} alt="" className="w-100 mt-5" />
                     </div>
 
-                    <div className='row mt-5'>
-                        <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
-                            <div className=''>
-                                <p>“ The web design course provided a solid foundation for me.
-                                    The instructors were knowledgeable and supportive, and the interactive learning environment was engaging.
-                                    I highly recommend it! ”</p>
-                                <div className='d-flex mt-4 mb-4'>
-                                    <p className=' mr-auto  text-dark'>
-                                        <img src={test1} alt='kdnf' />
-                                        <p>Sarah L</p>
-                                    </p>
-                                    <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
-                            <div className=''>
-                                <p>“The UI/UX design course exceeded my expectations. The instructor's expertise and
-                                    practical assignments helped me improve my design skills. I feel more confident in my
-                                    career now. Thank you!”
-                                </p>
-                                <div className='d-flex mt-4 mb-4'>
-                                    <p className=' mr-auto  text-dark'>
-                                        <img src={test2} alt='kdnf' />
-                                        <p>Jason M</p>
-                                    </p>
-                                    <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className='row mt-2'>
-                        <div className='col-lg-5   shadow-sm p-5 mx-auto mb-5 bg-white rounded-lg'>
-                            <div className=''>
+                    {/* benefits */}
+                    <div className='container mt-5'>
+                        <div className='row'>
+                            <div className='col-lg-9'>
+                                <h3>Benefits</h3>
                                 <p>
-                                    “The mobile app development course was fantastic! The step-by-step tutorials and hands-on projects helped
-                                    me grasp the concepts easily. I'm now building my own app. Great course!”
+                                    Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget
+                                    elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget
+                                    habitasse in velit fringilla feugiat senectus in.
                                 </p>
-                                <div className='d-flex mt-4 mb-4'>
-                                    <p className=' mr-auto  text-dark'>
-                                        <img src={test3} alt='kdnf' />
-                                        <p>Emily K</p>
-                                    </p>
-                                    <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
-                                </div>
+                            </div>
+                            <div className='col-lg-3 text-right'>
+                                <button className='btn btn-white text-dark fw-bold text-right mt-5'>View All</button>
                             </div>
                         </div>
-                        <div className='col-lg-5   shadow-sm p-5 mx-auto mb-5 bg-white rounded-lg'>
-                            <div className=''>
-                                <p>
-                                    “I enrolled in the graphic design course as a beginner, and it was the perfect starting
-                                    point. The instructor's guidance and feedback improved my design abilities significantly.
-                                    I'm grateful for this course!”
-                                </p>
-                                <div className='d-flex mt-4 mb-4'>
-                                    <p className=' mr-auto  text-dark'>
-                                        <img src={test4} alt='kdnf' />
-                                        <p>Michael K</p>
+
+                        <div className='row mt-4'>
+                            {benefitContent.map((item, index) => (
+                                <div className='col-md-4'>
+                                    <div className=' p-5  shadow-sm  mb-5 bg-white rounded'>
+                                        <div className='card-text'>
+                                            <h2 className='text-right'>{item.number}</h2>
+                                        </div>
+                                        <div className='card-title h4'>{item.header}</div>
+                                        <div className='card-text'>
+                                            {item.content}
+                                        </div>
+                                        <Link to={item.link}>
+                                            <p style={{ color: '#FF9500' }} className='text-right'><i class="  fa fa-arrow-right"></i></p>
+                                        </Link>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* lecturer */}
+                    <div className='container mt-4'>
+                        <p className='fw-bold h3 mb-5'>Our Lecturers</p>
+                        <div className='row '>
+                            <div className='col-lg-3 mr-5 shadow border border-black p-3 w-25 mx-auto text-center  mb-5 rounded'>
+                                <div className='mb-3'>
+                                    <img src={teach} alt='iod' className='w-50' style={{ borderRadius: '20%' }} />
+                                </div>
+                                <div>
+                                    <p className='fw-bold'>Professor Adebite Hope</p>
+                                    <p>Physics and Mathematics</p>
+                                    <p>1,240 Student Tutored</p>
+                                    <button className='btn btn-outline-success'>View More</button>
+                                </div>
+                            </div>
+                            <div className='col-lg-3 mr-5 shadow border border-black p-3 w-25 mx-auto text-center  mb-5 rounded'>
+                                <div className='mb-3'>
+                                    <img src={teach} alt='iod' className='w-50' style={{ borderRadius: '20%' }} />
+                                </div>
+                                <div>
+                                    <p className='fw-bold'>Professor Adebite Hope</p>
+                                    <p>Physics and Mathematics</p>
+                                    <p>1,240 Student Tutored</p>
+                                    <button className='btn btn-outline-success'>View More</button>
+                                </div>
+
+                            </div>
+                            <div className='col-lg-3 mr-5 shadow border border-black p-3 w-25 mx-auto text-center  mb-5 rounded'>
+                                <div className='mb-3'>
+                                    <img src={teach} alt='iod' className='w-50' style={{ borderRadius: '20%' }} />
+                                </div>
+                                <div>
+                                    <p className='fw-bold'>Professor Adebite Hope</p>
+                                    <p>Physics and Mathematics</p>
+                                    <p>1,240 Student Tutored</p>
+                                    <button className='btn btn-outline-success'>View More</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    {/* end */}
+                    {/* our testimonies */}
+                    <div className='container mt-4'>
+                        <div className='d-flex'>
+                            <em className='text-left'>
+                                <h3>Our Testimonials</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur. Tempus tincidunt  etiam eget elit id imperdiet et.
+                                    Cras eu sit dignissim <br />lorem nibh et. Ac cum eget habitasse  in velit fringilla feugiat senectus in.</p>
+                            </em>
+                            <button className='btn btn bg-white text-dark fw-bold text-right mt-5 ml-auto'>View All</button>
+                        </div>
+
+                        <div className='row mt-5'>
+                            <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
+                                <div className=''>
+                                    <p>“ The web design course provided a solid foundation for me.
+                                        The instructors were knowledgeable and supportive, and the interactive learning environment was engaging.
+                                        I highly recommend it! ”</p>
+                                    <div className='d-flex mt-4 mb-4'>
+                                        <p className=' mr-auto  text-dark'>
+                                            <img src={test1} alt='kdnf' />
+                                            <p>Sarah L</p>
+                                        </p>
+                                        <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
+                                <div className=''>
+                                    <p>“The UI/UX design course exceeded my expectations. The instructor's expertise and
+                                        practical assignments helped me improve my design skills. I feel more confident in my
+                                        career now. Thank you!”
                                     </p>
-                                    <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
+                                    <div className='d-flex mt-4 mb-4'>
+                                        <p className=' mr-auto  text-dark'>
+                                            <img src={test2} alt='kdnf' />
+                                            <p>Jason M</p>
+                                        </p>
+                                        <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className='row mt-2'>
+                            <div className='col-lg-5   shadow-sm p-5 mx-auto mb-5 bg-white rounded-lg'>
+                                <div className=''>
+                                    <p>
+                                        “The mobile app development course was fantastic! The step-by-step tutorials and hands-on projects helped
+                                        me grasp the concepts easily. I'm now building my own app. Great course!”
+                                    </p>
+                                    <div className='d-flex mt-4 mb-4'>
+                                        <p className=' mr-auto  text-dark'>
+                                            <img src={test3} alt='kdnf' />
+                                            <p>Emily K</p>
+                                        </p>
+                                        <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-lg-5   shadow-sm p-5 mx-auto mb-5 bg-white rounded-lg'>
+                                <div className=''>
+                                    <p>
+                                        “I enrolled in the graphic design course as a beginner, and it was the perfect starting
+                                        point. The instructor's guidance and feedback improved my design abilities significantly.
+                                        I'm grateful for this course!”
+                                    </p>
+                                    <div className='d-flex mt-4 mb-4'>
+                                        <p className=' mr-auto  text-dark'>
+                                            <img src={test4} alt='kdnf' />
+                                            <p>Michael K</p>
+                                        </p>
+                                        <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+
                 </div>
 
 
+                <Footer />
 
             </div>
-
-
-            <Footer />
-
-        </div>
 
         </>
     )
