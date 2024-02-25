@@ -144,9 +144,8 @@ const Home = () => {
                                     <p>1,240 Student Tutored</p>
                                     <button className='btn btn-outline-success'>View More</button>
                                 </div>
-
                             </div>
-
+                            <Link to="/tutors" className='text-right nav-link'>View More</Link>
                         </div>
 
                     </div>
