@@ -6,6 +6,7 @@ import LogIn from "./Landing/LogIn";
 import AboutUs from "./Landing/AboutUs";
 import ContactUs from "./Landing/ContactUs";
 import AllLecturer from "./Landing/All-Lecturer";
+import Profile from "./Landing/Lecturer-Profile";
 
 
 const Routing = () => {
@@ -20,6 +21,7 @@ const Routing = () => {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/tutors" element={<AllLecturer />} />
+        <Route path="/lecturer-details" element={<Profile />} />
 
 
       </Routes>
