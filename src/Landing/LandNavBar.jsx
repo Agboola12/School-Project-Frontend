@@ -36,20 +36,15 @@ const LandNavBar = () => {
                     Contact
                   </Link>
                 </li>
-                <li className="nav-item dropdown list-line-item mr-5 " >
-                  <Link to="/contact" className='nav-link active text-center'>
-                    Tutor
-                  </Link>
+              </ul>
+              <ul className="navbar-nav list-line ml-auto">
+                {/* <li className="nav-item active list-line-item mr-5 ">
+                  <Link className="nav-link active text-center" to="/register">Register</Link>
+                </li>  */}
+                <li className="nav-item active list-line-item mr-5 " >
+                  <Link to="/login" className='text-light nav-link text-center btn btn' style={{ backgroundColor: '#FF9500' }} >Login</Link>
                 </li>
               </ul>
-              {/* <ul className="navbar-nav list-line ml-auto">               
-        <li className="nav-item active list-line-item mr-5 ">
-          <Link className="nav-link active text-center" to="/register">Register</Link>
-        </li> */}
-              {/* <li className="nav-item active list-line-item mr-5 " >
-          <Link to="/login" className= 'text-light nav-link text-center btn btn' style={{backgroundColor:'#FF9500'}} >Login</Link>
-        </li> */}
-              {/* </ul> */}
 
             </div>
           </nav>

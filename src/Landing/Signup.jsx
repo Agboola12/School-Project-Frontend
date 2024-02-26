@@ -6,7 +6,6 @@ import image from '../images/tes4.png'
 import icon1 from '../icons/arrow-left (1).svg'
 import icon2 from '../icons/arrow-right.svg'
 import icon3 from '../icons/arrow-up-right.svg'
-import google from '../icons/google-fill.png'
 
 const Signup = () => {
   return (
