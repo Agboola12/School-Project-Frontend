@@ -14,9 +14,6 @@
 
 #tutor{
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url('../images/new01.jpg');
-
-    /* background:url('../images/new01.jpg'); */
-    /* aaa */
     background-size: cover;
     background-attachment: fixed;
     -moz-background-size: cover;
