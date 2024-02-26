@@ -20,7 +20,8 @@ const AllLecturer = () => {
                             <p className='fw-bold'>Professor Adebite Hope</p>
                             <p>Physics and Mathematics</p>
                             <p>1,240 Student Tutored</p>
-                            <button className='btn btn-outline-success'>View More</button>
+                            <Link to='/lecturer-details' className='btn btn-outline-success'>View More</Link>
+
                         </div>
                     </div>
                     <div className='col-lg-3 mr-5 shadow border border-black p-3 w-25 mx-auto text-center  mb-5 rounded'>
@@ -31,7 +32,7 @@ const AllLecturer = () => {
                             <p className='fw-bold'>Professor Adebite Hope</p>
                             <p>Physics and Mathematics</p>
                             <p>1,240 Student Tutored</p>
-                            <button className='btn btn-outline-success'>View More</button>
+                            <Link to='/lecturer-details' className='btn btn-outline-success'>View More</Link>
                         </div>
 
                     </div>
