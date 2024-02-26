@@ -63,12 +63,32 @@ const Profile = () => {
                             {/* Videos */}
                             <hr />
                             <div>
+                                <h4 id="Document" className="title">Documents</h4>
+                                <div className='row'>
+                                    <div className='col-lg-3 shadow-sm bg-light p-5'>
+                                        <input type="file"  accept=".pdf,.doc,.docx" />
+                                 </div>
+                                    <div className='col-lg-3 shadow-sm bg-light p-5'>
+                                        <input type="file"  accept=".pdf,.doc,.docx" />
+                                 </div>
+                                    <div className='col-lg-3 shadow-sm bg-light p-5'>
+                                        <input type="file"  accept=".pdf,.doc,.docx" />
+                                 </div>
+                                </div>
+
+                            </div>
+                            <hr/>
+                            <div>
                                 <h4 id="videos" className="title">Videos</h4>
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                                        <video src={aderonke} controls class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water"></video>
-
-                                        <video src={aderonke} controls class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water"></video>
+                                    <div class="col-lg-4 mb-4 mb-lg-0">
+                                        <video src={aderonke} controls class="w-100 h-50 shadow-1-strong rounded mb-4" alt="Boat on Calm Water"></video>
+                                    </div>
+                                    <div class="col-lg-4 mb-4 mb-lg-0">
+                                        <video src={aderonke} controls class="w-100 h-50 shadow-1-strong rounded mb-4" alt="Boat on Calm Water"></video>
+                                    </div>
+                                    <div class="col-lg-4 mb-4 mb-lg-0">
+                                        <video src={aderonke} controls class="w-100 h-50 shadow-1-strong rounded mb-4" alt="Boat on Calm Water"></video>
                                     </div>
                                 </div>
                             </div>
