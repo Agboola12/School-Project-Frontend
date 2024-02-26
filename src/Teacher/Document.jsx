@@ -1,4 +1,5 @@
 import React from 'react'
+import TutorNavBar from './TeacherNavBar'
 
 const Document = () => {
   return (
