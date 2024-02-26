@@ -25,10 +25,10 @@ const TutorNavBar = () => {
             <div className="collapse navbar-collapse" id="sab">
               <ul className="navbar-nav list-line mx-auto">
                 <li className="nav-item active list-line-item mr-5 ">
-                  <Link to="/" className="nav-link active text-center ">Dashboard</Link>
+                  <Link to="/dashboard" className="nav-link active text-center ">Dashboard</Link>
                 </li>
                 <li className="nav-item dropdown list-line-item mr-5 " >
-                  <Link to="/about" className="nav-link active text-center">Document </Link>
+                  <Link to="/document" className="nav-link active text-center">Document </Link>
                 </li>
 
               </ul>
