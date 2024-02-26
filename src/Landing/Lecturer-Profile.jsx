@@ -9,7 +9,7 @@ const Profile = () => {
 
         <div className='contianer-fluid'>
             <div className='row'>
-                <div clas>
+                <div className='col-lg-4'>
 
                 </div>
             </div>
