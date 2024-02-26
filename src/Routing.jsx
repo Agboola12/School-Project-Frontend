@@ -7,6 +7,7 @@ import AboutUs from "./Landing/AboutUs";
 import ContactUs from "./Landing/ContactUs";
 import AllLecturer from "./Landing/All-Lecturer";
 import Profile from "./Landing/Lecturer-Profile";
+import Dashboard from "./Teacher/Dashboard";
 
 
 const Routing = () => {
@@ -22,6 +23,9 @@ const Routing = () => {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/tutors" element={<AllLecturer />} />
         <Route path="/lecturer-details" element={<Profile />} />
+
+        {/* Tutor */}
+        <Route path="/dashboard" element={<Dashboard />} />
 
 
       </Routes>

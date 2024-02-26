@@ -35,17 +35,22 @@ const LogIn = () => {
                     <label className="form-check-label" for="agree">Remember Me</label>
                   </div>
                   <div className="form-check mt-3">
-                    <Link to="/userdashboard"  className={`${style.container} btn btn-warning h-75 d-grid gap-2 col-12 mx-auto`}>Login</Link>
+                    <Link to="/dashboard" className={`${style.container} btn btn-warning h-75 d-grid gap-2 col-12 mx-auto`}>Login</Link>
                   </div>
                 </form>
                 <hr></hr>
                 <p className="text-center">Or </p>
                 <div className="text-center">
 
-                  <p className="btn btn-white text-black btn-light p-2 fw-bold"> <i className='fab fa-google text-danger mr-2'></i> Sign Up with Google</p>
+                  <p className="btn btn-white text-black btn-light p-2 fw-bold">
+                    <i className='fab fa-google text-danger mr-2'></i>
+                    Sign Up with Google</p>
                 </div>
                 <div className="col-lg-12 order-lg-1 text-center m-4">
-                  <p>Don't have an account? <a href="#">Sign Up</a><img src={icon3} alt="" /></p>
+                  <p>Don't have an account?
+                    <Link to="/register">Sign Up</Link>
+                    <img src={icon3} alt="" />
+                  </p>
                 </div>
               </div>
             </div>

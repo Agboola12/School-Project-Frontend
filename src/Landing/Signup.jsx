@@ -6,6 +6,7 @@ import image from '../images/tes4.png'
 import icon1 from '../icons/arrow-left (1).svg'
 import icon2 from '../icons/arrow-right.svg'
 import icon3 from '../icons/arrow-up-right.svg'
+import { Link } from 'react-router-dom'
 
 const Signup = () => {
   return (
@@ -33,19 +34,24 @@ const Signup = () => {
                   </div>
                   <div className="form-check mt-4">
                     <input type="checkbox" className="form-check-input" id="agree" required></input>
-                    <label className="form-check-label" for="agree">I agree with <a href="" class="text-info">Terms of Use</a> and <a href="" class="text-info">Private Policy</a></label>
+                    <label className="form-check-label" for="agree">I agree with
+                      <a href="" class="text-info">Terms of Use</a> and
+                      <a href="" class="text-info">Private Policy</a></label>
                   </div>
                   <div className='form-check mt-4'>
                     <button type="submit" className={`${style.container} btn btn-warning mt-3 d-grid gap-2 col-lg-12 p-2 mx-auto`}>Sign Up</button>
                   </div>
                 </form>
-                <hr className='mt-4'/>
+                <hr className='mt-4' />
                 <p className="text-center">Or</p>
                 <div className="text-center">
                   <p className="btn btn-white text-black btn-light p-3"> <i className='fab fa-google mr-2'></i> Sign Up with Google</p>
                 </div>
                 <div className="col-lg-12 order-lg-1 text-center m-4">
-                  <p>Already have an account? <a href="#">Login in</a><img src={icon3} alt="" /></p>
+                  <p>Already have an account?
+                    <Link to="/login">Login in</Link>
+                    <img src={icon3} alt="" />
+                  </p>
                 </div>
               </div>
             </div>
