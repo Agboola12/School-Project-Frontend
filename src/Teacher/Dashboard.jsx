@@ -18,7 +18,7 @@ const Dashboard = () => {
                             <div className="col-lg-12">
                                 <div className="grid-item inner-box grid-cover mb-5 " id={style.tutor} >
                                     <div className="overlay-hero"></div>
-                                    <h2 className="text-white z-index "> Profile</h2>
+                                    {/* <h2 className="text-white z-index "> Profile</h2> */}
                                 </div>
                             </div>
                         </div>
@@ -28,6 +28,7 @@ const Dashboard = () => {
 
                 <div className="info-section pb-5">
             <div className="container">
+            <h2 className="text-dark text-center mt-1 fw-bold fs-1"> Profile</h2>
                 <div className="col-lg-12">
 
                     <div className="mb-4">
