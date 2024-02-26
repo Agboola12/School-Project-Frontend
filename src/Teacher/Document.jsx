@@ -1,5 +1,6 @@
 import React from 'react'
 import TutorNavBar from './TeacherNavBar'
+import Footer from '../Landing/Footer'
 
 const Document = () => {
   return (
@@ -21,6 +22,9 @@ const Document = () => {
                         </div>
                     </div>
                 </div>
+    </div>
+</div>
+<Footer/>
     </div>
   )
 }
