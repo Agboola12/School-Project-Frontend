@@ -2,8 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { setAdmin } from '../Slices/adminSlice';
-import BaseUrl from '../BaseUrl';
+import { setAdmin } from '../Slices/adminSlices';
 
 const AdminGuard = () => {
     const dispatch = useDispatch();
@@ -19,6 +18,7 @@ const AdminGuard = () => {
     useEffect(() => {
         if (localStorage.token) {
             axios.get(BaseUrl + "getAdmin").then(res => {
+
                 if (res.data.status) {
                     dispatch(setAdmin(res.data.data));
                     setComponent(<Outlet />)
