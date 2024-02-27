@@ -17,31 +17,36 @@ const Signup = () => {
           <div className="row justify-content-center">
             <div className="col-lg-6 order-lg-2 ">
               <div className="signup-form p-5 mb-3 bg-white">
-                <h2 className="text-center">Sign Up</h2>
-                <form action="#" method="post">
-                  <p className="text-center">Create account to unlock the exclusive features</p>
+                <h2 className="text-center fw-bold">Sign Up</h2>
+                {/* <form action="#" method="post"> */}
+                  <p className="text-center">Create account to help many lives</p>
                   <div className="form-group mt-4">
                     <label for="username">Full Name</label>
-                    <input type="text" className="form-control " required placeholder="Enter you Name"></input>
+                    <input type="text" className="form-control "  placeholder="Enter Your FullName"/>
                   </div>
                   <div className="form-group mt-4">
                     <label for="email">Email</label>
-                    <input type="email" className="form-control  d-grid col-12" required placeholder="Enter your Email"></input>
+                    <input type="email" className="form-control  d-grid col-12"  placeholder="Enter Your Email"/>
+                  </div>
+                  <div className="form-group mt-4">
+                    <label for="email">Department</label>
+                    <input type="text" name='Department' className="form-control  d-grid col-12"  placeholder="Enter Your Department"/>
                   </div>
                   <div className="form-group mt-4">
                     <label for="password">Password</label>
                     <input type="password" className="form-control " required placeholder="Enter your Password"></input>
                   </div>
-                  <div className="form-check mt-4">
-                    <input type="checkbox" className="form-check-input" id="agree" required></input>
-                    <label className="form-check-label" for="agree">I agree with
-                      <a href="" class="text-info">Terms of Use</a> and
-                      <a href="" class="text-info">Private Policy</a></label>
-                  </div>
                   <div className='form-check mt-4'>
-                    <button type="submit" className={`${style.container} btn btn-warning mt-3 d-grid gap-2 col-lg-12 p-2 mx-auto`}>Sign Up</button>
+                    <button type="submit" className={`${style.container} btn btn-warning mt-3 fw-bold fs-4 d-grid gap-2 col-lg-12 p-2 mx-auto`}>
+                      Sign Up
+                    </button>
                   </div>
-                </form>
+                {/* </form> */}
+
+
+
+
+
                 <hr className='mt-4' />
                 <p className="text-center">Or</p>
                 <div className="text-center">

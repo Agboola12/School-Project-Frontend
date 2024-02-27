@@ -35,7 +35,7 @@ const LogIn = () => {
                     <label className="form-check-label" for="agree">Remember Me</label>
                   </div>
                   <div className="form-check mt-3">
-                    <Link to="/dashboard" className={`${style.container} btn btn-warning h-75 d-grid gap-2 col-12 mx-auto`}>Login</Link>
+                    <Link to="/dashboard" className={`${style.container} btn btn-warning h-75 p-1 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>Login</Link>
                   </div>
                 </form>
                 <hr></hr>
