@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import style from '../styles/LandNavBar.module.css'
 import image from '../images/tes4.png'
 import icon1 from '../icons/arrow-left (1).svg'
@@ -7,9 +7,58 @@ import icon3 from '../icons/arrow-up-right.svg'
 import google from '../icons/google-fill.png'
 import LandNavBar from './LandNavBar'
 import Footer from './Footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import BaseUrl from '../BaseUrl'
+import axios from 'axios'
 
 const LogIn = () => {
+
+  const email = useRef();
+  const password = useRef();
+    const [Error, setError] = useState("");
+    const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false)
+
+
+  const [result, setResult] = useState({
+    message: "",
+    status: false
+  })
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const data = {
+      email: email.current.value,
+      password: password.current.value
+    }
+    setIsLoading(true);
+    axios.post(BaseUrl + "userLogin", data).then
+      (res => {
+        if (res.data.status) {
+          localStorage.setItem("token", res.data.token);
+          navigate("/dashboard")
+        }
+        setResult({
+          message: res.data.message,
+          status: res.data.status
+        })
+        setTimeout(() => {
+          setResult({
+              message: "",
+              status: false
+          });
+          setError("");
+      }, 3000);
+      }).catch(err => {
+        console.log(err.message)
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
+  }
+
+
   return (
     <>
       <LandNavBar />
@@ -21,13 +70,13 @@ const LogIn = () => {
               <div className="signup-form p-4 mb-3 bg-white p-5">
                 <h2 className="text-center fw-bold">Login</h2>
                 <p>
-                                    <b className="text-danger">{Error}</b>
-                                </p>
-                                <div
-                                    className={`alert alert-${result.status ? 'success' : 'danger'} text-center text-${result.status ? 'success' : 'danger'
-                                        } d-${result.message ? 'block' : 'none'}`}>
-                                    {result.message}
-                                </div>
+                  <b className="text-danger">{Error}</b>
+                </p>
+                <div
+                  className={`alert alert-${result.status ? 'success' : 'danger'} text-center text-${result.status ? 'success' : 'danger'
+                    } d-${result.message ? 'block' : 'none'}`}>
+                  {result.message}
+                </div>
                 <form action="" method="post" enctype="multipart/form-data">
                   <p className="text-center">Welcome back! please log in to access your account</p>
                   <div className="form-group">
@@ -43,9 +92,11 @@ const LogIn = () => {
                     <label className="form-check-label" for="agree">Remember Me</label>
                   </div>
                   <div className="form-check mt-3">
-                    <button to="/dashboard" disabled={isLoading} name="submit" onClick={handleLogin} className={`${style.container} btn btn-warning h-75 p-1 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>
-                      Login
-                      </button>
+                    <button disabled={isLoading} name="submit" onClick={handleLogin} className={`${style.container} btn btn-warning h-75 p-1 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>
+                      <b>
+                        {isLoading ? "LoggingIn..." : "Login"}
+                      </b>
+                    </button>
                   </div>
                 </form>
                 <hr></hr>
