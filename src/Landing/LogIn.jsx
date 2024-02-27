@@ -20,22 +20,32 @@ const LogIn = () => {
             <div className="col-lg-6 order-lg-2 ">
               <div className="signup-form p-4 mb-3 bg-white p-5">
                 <h2 className="text-center fw-bold">Login</h2>
-                <form action="" method="post">
+                <p>
+                                    <b className="text-danger">{Error}</b>
+                                </p>
+                                <div
+                                    className={`alert alert-${result.status ? 'success' : 'danger'} text-center text-${result.status ? 'success' : 'danger'
+                                        } d-${result.message ? 'block' : 'none'}`}>
+                                    {result.message}
+                                </div>
+                <form action="" method="post" enctype="multipart/form-data">
                   <p className="text-center">Welcome back! please log in to access your account</p>
                   <div className="form-group">
                     <label for="email">Email</label>
-                    <input type="email" className="form-control  d-grid col-12" required placeholder="Enter your Email" />
+                    <input type="email" ref={email} className="form-control  d-grid col-12" required placeholder="Enter your Email" />
                   </div>
                   <div className="form-group mt-4">
                     <label for="password">Password</label>
-                    <input type="password" className="form-control " required placeholder="Enter your Password" />
+                    <input type="password" ref={password} className="form-control " required placeholder="Enter your Password" />
                   </div>
                   <div className="form-check">
                     <input type="checkbox" className="form-check-input" id="agree" required></input>
                     <label className="form-check-label" for="agree">Remember Me</label>
                   </div>
                   <div className="form-check mt-3">
-                    <Link to="/dashboard" className={`${style.container} btn btn-warning h-75 p-1 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>Login</Link>
+                    <button to="/dashboard" disabled={isLoading} name="submit" onClick={handleLogin} className={`${style.container} btn btn-warning h-75 p-1 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>
+                      Login
+                      </button>
                   </div>
                 </form>
                 <hr></hr>
