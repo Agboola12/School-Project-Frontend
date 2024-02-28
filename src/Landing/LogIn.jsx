@@ -32,7 +32,7 @@ const LogIn = () => {
       password: password.current.value
     }
     setIsLoading(true);
-    axios.post(BaseUrl + "userLogin", data).then
+    axios.post(BaseUrl + "tutorLogin", data).then
       (res => {
         if (res.data.status) {
           localStorage.setItem("token", res.data.token);
@@ -86,10 +86,6 @@ const LogIn = () => {
                   <div className="form-group mt-4">
                     <label for="password">Password</label>
                     <input type="password" ref={password} className="form-control " required placeholder="Enter your Password" />
-                  </div>
-                  <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="agree" required></input>
-                    <label className="form-check-label" for="agree">Remember Me</label>
                   </div>
                   <div className="form-check mt-3">
                     <button disabled={isLoading} name="submit" onClick={handleLogin} className={`${style.container} btn btn-warning h-75 p-1 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>

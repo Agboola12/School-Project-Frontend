@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { setAdmin } from '../Slices/adminSlices';
+import BaseUrl from '../BaseUrl';
 
 const AdminGuard = () => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const AdminGuard = () => {
 
     useEffect(() => {
         if (localStorage.token) {
-            axios.get(BaseUrl + "getAdmin").then(res => {
+            axios.get(BaseUrl + "getTutor").then(res => {
 
                 if (res.data.status) {
                     dispatch(setAdmin(res.data.data));
@@ -26,7 +27,7 @@ const AdminGuard = () => {
             }).catch(err => {
             })
         } else {
-            navigate("/AdminLogin")
+            navigate("/login")
 
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

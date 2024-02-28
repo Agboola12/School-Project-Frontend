@@ -3,9 +3,14 @@ import TutorNavBar from './TeacherNavBar'
 import Footer from '../Landing/Footer'
 import style from '../styles/LandNavBar.module.css'
 import avatar from '../images/avatar.jpeg'
+import { useSelector } from 'react-redux'
 
 
 const Dashboard = () => {
+    const { loginAdmin: user } = useSelector((state) => state.admin);
+
+    console.log(user);
+
     return (
         <div>
             <TutorNavBar />
