@@ -18,7 +18,7 @@ const AdminGuard = () => {
 
     useEffect(() => {
         if (localStorage.token) {
-            axios.get(BaseUrl + "getTutor",{headers:{Authorization:`${localStorage.token}`}}).then(res => {
+            axios.get(BaseUrl + "getTutor").then(res => {
 
                 if (res.data.status) {
                     dispatch(setAdmin(res.data.data));

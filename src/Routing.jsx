@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 import { BrowserRouter as Router } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
 import Home from "./Landing/Home";
 import Signup from "./Landing/Signup";
 import LogIn from "./Landing/LogIn";
@@ -11,7 +12,14 @@ import Profile from "./Landing/Lecturer-Profile";
 import Dashboard from "./Teacher/Dashboard";
 import Document from "./Teacher/Document";
 import AdminGuard from "./Guard/adminGuard";
+import axios from "axios";
 
+axios.interceptors.request.use((value) =>{
+  value.headers = {
+    "Authorization" : localStorage.token
+  };
+  return value;
+})
 
 const Routing = () => {
   return (
@@ -33,6 +41,7 @@ const Routing = () => {
           <Route path="/document" element={<Document />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </Router>
     </>
   );

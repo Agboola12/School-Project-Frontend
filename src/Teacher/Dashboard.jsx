@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import TutorNavBar from './TeacherNavBar'
 import Footer from '../Landing/Footer'
 import style from '../styles/LandNavBar.module.css'
 import avatar from '../images/avatar.jpeg'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import BaseUrl from '../BaseUrl'
+import axios from 'axios'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Dashboard = () => {
@@ -21,10 +25,9 @@ const Dashboard = () => {
         axios.patch(BaseUrl + `userImage/${user._id}`, data)
             .then((res) => {
                 if (res.data.status) {
-                    axios.get(BaseUrl + "getUser").then(res => {
+                    axios.get(BaseUrl + "getTutor").then(res => {
                         if (res.data.status) {
                             dispatch(setuser(res.data.data));
-                            // const formattedDate = moment(res.data.joinDate).format('YYYY-MM-DD');
                         }
                     })
                 }
@@ -121,6 +124,7 @@ const Dashboard = () => {
 
             </div>
 
+            <ToastContainer />
 
             <Footer />
         </div>
