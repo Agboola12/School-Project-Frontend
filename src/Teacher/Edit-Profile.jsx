@@ -4,13 +4,13 @@ import Worshipp from '../images/worship-2.jpg'
 // import avatar from '../images/avatar-1.jpeg'
 import ava from '../images/000.png'
 import { Link, useNavigate } from 'react-router-dom'
-import BaseUrl from '../BaseUrl'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { setuser } from '../Slices/UserSlices'
 import Footer from '../LandingPage/Footer'
+import BaseUrl from '../BaseUrl'
 
 const EditProfile = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -26,7 +26,7 @@ const EditProfile = () => {
     }, [])
 
     const fetchUser = () => {
-        axios.get(BaseUrl + "getUser")
+        axios.get(BaseUrl + "getTutor")
             .then(res => {
                 if (res.data.status) {
                     setUser(res.data.data)
@@ -53,7 +53,7 @@ const EditProfile = () => {
 
     const handleSubmit = (_id) => {
         setIsLoading(true);
-        axios.patch(BaseUrl + `editUser/${_id}`, user)
+        axios.patch(BaseUrl + `editTutor/${_id}`, user)
             .then(res => {
                 if (res.data.status) {
                     // console.log(res);
@@ -62,7 +62,7 @@ const EditProfile = () => {
                         autoClose: 3000,
                     })
                 }
-                navigate("/Dashboard")
+                navigate("/dashboard")
             })
             .catch((err) => {
                 const error = err.response?.data?.message || 'An error occurred';
@@ -78,7 +78,7 @@ const EditProfile = () => {
 
 
     const dispatch = useDispatch();
-    const { loginUser: loginuser } = useSelector((state) => state.login)
+    const { loginAdmin: loginUser } = useSelector((state) => state.admin);
 
     const userImageUrl = useRef()
 
@@ -87,10 +87,10 @@ const EditProfile = () => {
         const data = new FormData();
         data.append("userImageUrl", userImageUrl.current.files[0])
 
-        axios.patch(BaseUrl + `userImage/${loginuser._id}`, data)
+        axios.patch(BaseUrl + `tutorImage/${loginUser._id}`, data)
             .then((res) => {
                 if (res.data.status) {
-                    axios.get(BaseUrl + "getUser").then(res => {
+                    axios.get(BaseUrl + "getTutor").then(res => {
                         if (res.data.status) {
                             dispatch(setuser(res.data.data));
                         }
