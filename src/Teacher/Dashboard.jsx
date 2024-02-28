@@ -22,7 +22,7 @@ const Dashboard = () => {
         const data = new FormData();
         data.append("userImageUrl", userImageUrl.current.files[0])
 
-        axios.patch(BaseUrl + `userImage/${user._id}`, data)
+        axios.patch(BaseUrl + `tutorImage/${user._id}`, data)
             .then((res) => {
                 if (res.data.status) {
                     axios.get(BaseUrl + "getTutor").then(res => {
@@ -68,22 +68,12 @@ const Dashboard = () => {
                     <div className="container">
                         <h2 className="text-dark text-center mt-1 fw-bold fs-1"> Profile</h2>
                         <div className="col-lg-12">
-
-                            {/* <div className="mb-4">
-                        <label htmlFor="image">
-                            <input type="file" id="image" name="image" className="d-none" />
-                            <div className="avatar-circle cursor-pointer rounded-circle mx-auto mb-2">
-                                <img src={avatar} className="img-fluid object-fit-cover object-position-center w-25 h-25" alt="Avatar" />
-                            </div>
-                            <em>Change your photo</em>
-                        </label>
-                    </div> */}
-
                             <div className="mb-4">
                                 <label for="image">
                                     <input type="file" onChange={handleImage} ref={userImageUrl} className="" />
                                     <div className="avatar-circle cursor-pointer rounded-circle mx-auto mb-2">
-                                        <img src={avatar} alt='sjnd' className="img-fluid object-fit-cover object-position-center w-100 h-100" />
+                                        <img src={user?.userImageUrl || avatar} alt='sjnd' 
+                                        className="img-fluid object-fit-cover object-position-center w-25 h-25" style={{borderRadius:'50px'}}/>
                                     </div>
                                     <em>Change your photo </em>
                                 </label>

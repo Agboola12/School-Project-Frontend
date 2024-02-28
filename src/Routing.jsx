@@ -13,6 +13,7 @@ import Dashboard from "./Teacher/Dashboard";
 import Document from "./Teacher/Document";
 import AdminGuard from "./Guard/adminGuard";
 import axios from "axios";
+import EditProfile from "./Teacher/Edit-Profile";
 
 axios.interceptors.request.use((value) =>{
   value.headers = {
@@ -39,6 +40,7 @@ const Routing = () => {
         <Route path="/" element={<AdminGuard />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/document" element={<Document />} />
+          <Route path="/editProfile" element={<EditProfile />} />
         </Route>
       </Routes>
       <ToastContainer />
