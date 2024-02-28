@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
+import style from '../styles/LandNavBar.module.css'
+import avatar from '../images/avatar.jpeg'
 import {  useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify';
@@ -146,12 +148,6 @@ const EditProfile = () => {
                             <div className="row">
                                 <div className="col-lg-4">
                                     <div className="form-floating mb-3">
-                                        <input type="text" name='titles' onChange={inputIsChanging} required className="form-control" placeholder="Mr" value={user?.titles} />
-                                        <label>Title</label>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="form-floating mb-3">
                                         <input type="text" name='fullName' onChange={inputIsChanging} required className="form-control" placeholder="Full name" value={user?.fullName} />
                                         <label>Full name</label>
                                     </div>
@@ -164,41 +160,13 @@ const EditProfile = () => {
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="form-floating mb-3">
-                                        <input type="text" name='mobile' onChange={inputIsChanging} required className="form-control" placeholder="Phone number" value={user?.mobile} />
-                                        <label>Phone number</label>
+                                        <input type="text" name='department' onChange={inputIsChanging} required className="form-control" placeholder="Phone number" value={user?.department} />
+                                        <label>Department</label>
                                     </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="form-floating mb-3">
-                                        <input type="text" name='postalCode' onChange={inputIsChanging} required value={user?.postalCode} className="form-control" placeholder="Postal code" />
-                                        <label>Postal code</label>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="form-floating mb-3">
-                                        <input type="text" name='address' onChange={inputIsChanging} required value={user?.address} className="form-control" placeholder="Address" />
-                                        <label>Address</label>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 ">
-                                    <div className="form-floating mb-3">
-                                        <input type="date" name='Dob' onChange={inputIsChanging} required value={user?.Dob} className="form-control" placeholder="Address" />
-                                        <label>Date Of Birth</label>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 ">
-                                    <div className="form-floating mb-3">
-                                        <input type="text" name='gender' onChange={inputIsChanging} required value={user?.gender} className="form-control" placeholder="Address" />
-                                        <label>Gender</label>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 mb-3">
-                                    <p className="mb-0"><label>Status</label></p>
-                                    <span className="badge text-bg-success">Member</span>
                                 </div>
                                 <div className="col-lg-12">
                                     <div className="text-center mt-4">
-                                        <button type="submit" disabled={isLoading} name="submit" onClick={() => handleSubmit(user._id)} className="btn btn-main-1 w-25 text-medium rounded-0 py-3 px-4" >
+                                        <button type="submit" disabled={isLoading} name="submit" onClick={() => handleSubmit(user._id)} className={`${style.container} btn btn-main-1 w-25 text-medium rounded-0 py-3 px-4`} >
                                             <b>
                                                 {isLoading ? "Updating..." : "Submit"}
                                             </b>
@@ -215,7 +183,6 @@ const EditProfile = () => {
 
         <Footer/>
 
-            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         </div>
     )
 }

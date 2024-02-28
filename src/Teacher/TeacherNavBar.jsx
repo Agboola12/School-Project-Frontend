@@ -1,10 +1,17 @@
 import React from 'react'
 import style from '../styles/LandNavBar.module.css'
 import logo from '../images/Logo.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const TutorNavBar = () => {
+
+  const navigate = useNavigate();
+
+    const LogOut = () => {
+        localStorage.removeItem("token");
+        navigate("/Login", { replace: true })
+      }
 
   return (
     <>
@@ -34,7 +41,7 @@ const TutorNavBar = () => {
               </ul>
               <ul className="navbar-nav list-line ml-auto">
                 <li className="nav-item active list-line-item mr-5 " >
-                  <Link to="/login" className='text-light nav-link text-center btn btn' style={{ backgroundColor: '#FF9500' }} >Logout</Link>
+                  <li onClick={LogOut} className='text-light nav-link text-center btn btn' style={{ backgroundColor: '#FF9500' }} >Logout</li>
                 </li>
               </ul>
 
