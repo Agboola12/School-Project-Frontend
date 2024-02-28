@@ -6,13 +6,15 @@ import image from '../images/tes4.png'
 import icon1 from '../icons/arrow-left (1).svg'
 import icon2 from '../icons/arrow-right.svg'
 import icon3 from '../icons/arrow-up-right.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik';
 import axios from 'axios';
 import * as yup from "yup";
 import BaseUrl from '../BaseUrl'
 
 const Signup = () => {
+  const navigate = useNavigate();
+
 
   // const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
   let lower = new RegExp(`(?=.*[a-z])`);
@@ -37,7 +39,7 @@ const Signup = () => {
     onSubmit: (values, { resetForm }) => {
 
       setIsLoading(true);
-      axios.post(BaseUrl + "userRegister", values).then(
+      axios.post(BaseUrl + "tutorRegister", values).then(
         res => {
           if (res.data.status) {
             setResult({
@@ -53,6 +55,8 @@ const Signup = () => {
               resetForm();
             }, 3000);
           }
+          navigate("/login")
+
         })
         .catch((err) => {
           console.error(err.message);
@@ -112,7 +116,7 @@ const Signup = () => {
                     } d-${result.message ? 'block' : 'none'}`}>
                   {result.message}
                 </div>
-                {/* <form action="#" method="post"> */}
+                <form action="#" method="post" onSubmit={formik.handleSubmit}>
                 <p className="text-center">Create account to help many lives</p>
                 <div className="form-group mt-4">
                   <label for="Full Name">Full Name</label>
@@ -205,7 +209,7 @@ const Signup = () => {
                     </b>
                   </button>
                 </div>
-                {/* </form> */}
+                </form>
 
 
 
