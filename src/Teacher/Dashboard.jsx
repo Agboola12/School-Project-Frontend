@@ -9,6 +9,7 @@ import BaseUrl from '../BaseUrl'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { setAdmin } from '../Slices/adminSlices'
 
 
 const Dashboard = () => {
@@ -27,7 +28,7 @@ const Dashboard = () => {
                 if (res.data.status) {
                     axios.get(BaseUrl + "getTutor").then(res => {
                         if (res.data.status) {
-                            dispatch(setuser(res.data.data));
+                            dispatch(setAdmin(res.data.data));
                         }
                     })
                 }

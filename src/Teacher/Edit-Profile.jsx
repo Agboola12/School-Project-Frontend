@@ -1,16 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import UserNav from './UserNav'
-import Worshipp from '../images/worship-2.jpg'
-// import avatar from '../images/avatar-1.jpeg'
-import ava from '../images/000.png'
-import { Link, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux'
-import { setuser } from '../Slices/UserSlices'
-import Footer from '../LandingPage/Footer'
 import BaseUrl from '../BaseUrl'
+import TutorNavBar from './TeacherNavBar'
+import { setAdmin } from '../Slices/adminSlices';
+import Footer from '../Landing/Footer';
 
 const EditProfile = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -92,7 +89,7 @@ const EditProfile = () => {
                 if (res.data.status) {
                     axios.get(BaseUrl + "getTutor").then(res => {
                         if (res.data.status) {
-                            dispatch(setuser(res.data.data));
+                            dispatch(setAdmin(res.data.data));
                         }
                     })
                 }
@@ -114,17 +111,16 @@ const EditProfile = () => {
 
     return (
         <div>
-            <UserNav />
+            <TutorNavBar />
 
             <div className="main-content">
 
-                <div className="welcome-sect">
+            <div className="about-sect">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
-                                <div className="grid-item inner-box grid-cover mb-5" style={{ backgroundImage: `url(${Worshipp})` }}>
+                                <div className="grid-item inner-box grid-cover mb-5 " id={style.tutor} >
                                     <div className="overlay-hero"></div>
-                                    <h2 className="text-white z-index-1">Welcome, {user?.fullName}</h2>
                                 </div>
                             </div>
                         </div>
@@ -135,12 +131,12 @@ const EditProfile = () => {
                     <div className="container">
                         <div className="col-lg-12">
 
-
-                            <div className="mb-4">
+                        <div className="mb-4">
                                 <label for="image">
                                     <input type="file" onChange={handleImage} ref={userImageUrl} className="" />
                                     <div className="avatar-circle cursor-pointer rounded-circle mx-auto mb-2">
-                                        <img src={loginuser?.userImageUrl || ava} alt='sjnd' className="img-fluid object-fit-cover object-position-center w-100 h-100" />
+                                        <img src={user?.userImageUrl || avatar} alt='sjnd' 
+                                        className="img-fluid object-fit-cover object-position-center w-25 h-25" style={{borderRadius:'50px'}}/>
                                     </div>
                                     <em>Change your photo </em>
                                 </label>
