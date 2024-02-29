@@ -1,11 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import LandNavBar from './LandNavBar'
-import teach from '../images/lectu.jpg'
 import aderonke from '../videos/aderonke.mp4'
 import Footer from './Footer'
+import { useSearchParams } from 'react-router-dom'
+import BaseUrl from '../BaseUrl'
+import axios from 'axios'
+import avatar from '../images/avatar.jpeg'
+
 
 
 const Profile = () => {
+
+    const [tutor, setTutor] = useState([])
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [isLoading, setIsLoading] = useState(false)
+
+
+    useEffect(() => {
+        FetchData();
+    }, [])
+
+    const FetchData = () => {
+        setIsLoading(true);
+
+        axios.get(BaseUrl + `tutorDetails/${searchParams.get('userId')}`)
+            .then(res => {
+                if (res.data.status) {
+                    setTutor(res.data.data);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    }
+
+
     return (
         <div>
             <LandNavBar />
@@ -14,10 +46,9 @@ const Profile = () => {
             <div className='container mt-5'>
                 <div className='row'>
                     <div className='col-lg-4 text-center mx-auto'>
-                        <img src={teach} alt='iod' className='w-50 rounded' />
-                        <p><i className='fa fa-user'></i>Professor John Okafor</p>
-                        <p><i className='fa fa-message'></i>JohnOkafor@gmail.com</p>
-                        <p><i className='fa fa-location-dot'></i>Surrey, Canada</p>
+                        <img src={tutor.userImageUrl || avatar} alt='iod' className='w-50 rounded' />
+                        <p><i className='fa fa-user'></i>{tutor.fullName}</p>
+                        <p><i className='fa fa-message'></i>{tutor.email}</p>
                     </div>
 
                     <div className="col-md-8">
@@ -43,7 +74,7 @@ const Profile = () => {
                                 {/* About */}
                                 <div>
                                     <h4 id="about" className="title">About</h4>
-                                    <p> I am Professor Okafor, a passionate and talented young man with a deep love of teaching students.
+                                    <p> I am {tutor.fullName}, a passionate and talented young man with a deep love of teaching students.
                                         Growing up in a teaching family, I began to teach at a young age, and ever since, I have dedicated myself to
                                         helping students learn and grow. My teaching philosophy is centered on creating engaging and interactive
                                         learning experiences that inspire curiosity and foster critical thinking skills. Outside of the classroom,

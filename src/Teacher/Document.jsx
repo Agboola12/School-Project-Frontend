@@ -61,9 +61,9 @@ const Document = () => {
         data.append("pdfFile", file);
 
         setIsLoading(true);
-        if(editID){
-            axios.patch(BaseUrl +`EditInfo/${editID}`,data).then((res)=>{
-                if(res.data.status){
+        if (editID) {
+            axios.patch(BaseUrl + `EditInfo/${editID}`, data).then((res) => {
+                if (res.data.status) {
                     FetchData();
                     setEditID('')
                     resetForm();
@@ -85,39 +85,39 @@ const Document = () => {
             }).catch((err) => {
                 console.log(err.message);
             })
-            .finally(() => {
-                setIsLoading(false);
-            });
+                .finally(() => {
+                    setIsLoading(false);
+                });
         }
-        else{
-        setIsLoading(true);
-        axios.post(BaseUrl + "tutorInfo", data).then(
-            res => {
-                if (res.data.status) {
-                    FetchData();
-                }
-                else {
-                    setError(res.data.message);
-                }
-                setResult({
-                    message: res.data.message,
-                    status: res.data.status
-                })
-                setTimeout(() => {
+        else {
+            setIsLoading(true);
+            axios.post(BaseUrl + "tutorInfo", data).then(
+                res => {
+                    if (res.data.status) {
+                        FetchData();
+                    }
+                    else {
+                        setError(res.data.message);
+                    }
                     setResult({
-                        message: "",
-                        status: false
-                    });
-                    setError("");
-                    resetForm();
-                }, 3000);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
+                        message: res.data.message,
+                        status: res.data.status
+                    })
+                    setTimeout(() => {
+                        setResult({
+                            message: "",
+                            status: false
+                        });
+                        setError("");
+                        resetForm();
+                    }, 3000);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                })
+                .finally(() => {
+                    setIsLoading(false);
+                });
         }
         setUser({});
         title.current.value = '';
@@ -191,7 +191,7 @@ const Document = () => {
                             {result.message}
                         </div>
                         <div className="col-lg-6 mb-lg-0 mb-5">
-                            <form method="post" action="" onSubmit={handleSubmit}> 
+                            <form method="post" action="" onSubmit={handleSubmit}>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="form-floating mb-3">
@@ -213,7 +213,7 @@ const Document = () => {
                                     </div>
                                     <div className="col-lg-12">
                                         <div className="text-center mt-4">
-                                            <button type="submit" disabled={isLoading}  name="submit" className="btn btn-main-1 w-100 text-medium text-light rounded-0 py-3 px-4" style={{ backgroundColor: '#FF9500' }} >
+                                            <button type="submit" disabled={isLoading} name="submit" className="btn btn-main-1 w-100 text-medium text-light rounded-0 py-3 px-4" style={{ backgroundColor: '#FF9500' }} >
                                                 <b>
                                                     {isLoading ? "Loading..." : "Submit"}
                                                 </b>
@@ -233,7 +233,7 @@ const Document = () => {
                                             <h6>{post.title}</h6>
                                             <p className="text-muted text-medium ft-sm"><em>Youtube Link: {post.youtubeLink}.</em></p>
                                             {/* <p className="text-muted text-medium ft-sm"><em>Document Link: {post.pdfLink}.</em></p> */}
-                                <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p>
+                                            <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p>
 
                                             {/* <iframe src={post.pdfFile} width="800" height="600" title="Document" className='bg-danger' /> */}
                                             {/* <a href={post.pdfFile} download>Download Document</a> */}

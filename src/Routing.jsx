@@ -34,7 +34,7 @@ const Routing = () => {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/tutors" element={<AllLecturer />} />
-        <Route path="/lecturer-details" element={<Profile />} />
+        <Route path="/tutordetails" element={<Profile />} />
 
         {/* Tutor */}
         <Route path="/" element={<AdminGuard />}>
