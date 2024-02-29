@@ -77,6 +77,38 @@ const Document = () => {
             });
     }
 
+    const DeleteInfo = (_id) => {
+        axios.delete(BaseUrl + `delInfo/${_id}`)
+            .then((res) => {
+                if (res.data.status) {
+                    FetchData();
+                } else {
+                    setError(res.data.message);
+                }
+                setResult({
+                    message: res.data.message,
+                    status: res.data.status,
+                });
+                setTimeout(() => {
+                    setResult({
+                        message: "",
+                        status: false,
+                    });
+                    setError("");
+                }, 3000);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            })
+        };
+
+        const EditInfo = (_id) => {
+
+            // setEditID(_id)
+            // setUser(()=>news.find((val)=>val._id==_id))
+            
+        }
+
     return (
         <div>
             <TutorNavBar />
@@ -144,15 +176,16 @@ const Document = () => {
                                 <div style={{ height: '300px' }} className="overflow-auto bg-light p-lg-4 p-3 rounded">
                                         <h5 className="text-center mb-5">Document</h5>
                                         <hr />
-            {news.sort((a,b)=>b.createdAt.localeCompare(a.createdAt)).map((post) => (
+            {info.sort((a,b)=>b.createdAt.localeCompare(a.createdAt)).map((post) => (
                                             <div className="mb-3 border-bottom">
                                                 <h6>{post.title}</h6>
-                                 <p className="line-clamp-3 ft-lg " dangerouslySetInnerHTML={{ __html: post.message }}></p>
-                                                <p className="text-muted text-medium ft-sm"><em>Published on {post.joinDate}.</em></p>
-                                                <button type="submit"  name="submit" onClick={() => DeleteNews(post._id)} className="btn btn text-danger" >
+                                                <p className="text-muted text-medium ft-sm"><em>Published on {post.youtubeLink}.</em></p>
+                                                <p className="text-muted text-medium ft-sm"><em>Published on {post.pdfLink}.</em></p>
+                                                <p className="text-muted text-medium ft-sm"><em>Published on {post.pdfFile}.</em></p>
+                                                <button type="submit"  name="submit" onClick={() => DeleteInfo(post._id)} className="btn btn text-danger" >
                                                      <i className="fa fa-trash"></i>
                                                 </button>
-                                                <button type="submit" name="submit" onClick={() =>EditNews(post._id)} className="btn btn text-success  mr-2" >
+                                                <button type="submit" name="submit" onClick={() =>EditInfo(post._id)} className="btn btn text-success  mr-2" >
                                                 <i className='fa fa-edit'></i>
                                             </button>
                                             </div>
