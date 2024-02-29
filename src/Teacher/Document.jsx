@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import TutorNavBar from './TeacherNavBar'
 import style from '../styles/LandNavBar.module.css'
 import Footer from '../Landing/Footer'
@@ -8,8 +8,8 @@ import BaseUrl from '../BaseUrl'
 const Document = () => {
     const title = useRef();
     const youtubeLink = useRef();
-    const pdfFile = useRef();
     const pdfLink = useRef();
+    const pdfFile = useRef();
     const [Error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false)
     const [info, setInfo] = useState([])
@@ -23,9 +23,10 @@ const Document = () => {
         FetchData();
     }, [])
     const FetchData = () => {
-        axios.get(BaseUrl + 'getNews')
-            .then(data => {
-                setInfo(data.data.data);
+        axios.get(BaseUrl + 'getDocument')
+            .then(res => {
+            console.log(res.data.data);
+                setInfo(res.data.data);
             })
             .catch(err => {
                 console.log(err);
