@@ -18,7 +18,6 @@ const AllLecturer = () => {
     const FetchData = () => {
         axios.get(BaseUrl + 'getAllUser')
             .then(res => {
-                console.log(res.data.data);
                 setUser(res.data.data);
             })
             .catch(err => {

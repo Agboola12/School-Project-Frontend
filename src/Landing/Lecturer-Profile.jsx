@@ -12,30 +12,84 @@ import avatar from '../images/avatar.jpeg'
 const Profile = () => {
 
     const [tutor, setTutor] = useState([])
+    const [info, setInfo] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
-    const [isLoading, setIsLoading] = useState(false)
+    const [youtube, setYoutube] = useState("")
 
 
     useEffect(() => {
-        FetchData();
-    }, [])
-
-    const FetchData = () => {
-        setIsLoading(true);
-
-        axios.get(BaseUrl + `tutorDetails/${searchParams.get('userId')}`)
-            .then(res => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(BaseUrl + `tutorDetails/${searchParams.get('userId')}`);
                 if (res.data.status) {
                     setTutor(res.data.data);
                 }
-            })
-            .catch(err => {
+            } catch (err) {
                 console.log(err);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
-    }
+            }
+        };
+
+        fetchData();
+    }, [searchParams]);
+
+    useEffect(() => {
+        const fetchDataInfo = async () => {
+            if (tutor._id) {
+                try {
+                    const res = await axios.get(BaseUrl + `getInfo/${tutor._id}`);
+                    if (res.data.status) {
+                        setInfo(res.data.data);
+                        const params = res.data.data.youtubeLink.split('=');
+                        setYoutube(params[1]);
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+        };
+
+        fetchDataInfo();
+    }, [tutor]);
+
+
+
+
+
+    // useEffect(() => {
+    //     FetchData();
+    // }, [])
+
+    // const FetchData = () => {
+    //     axios.get(BaseUrl + `tutorDetails/${searchParams.get('userId')}`)
+    //         .then(res => {
+    //             if (res.data.status) {
+    //                 setTutor(res.data.data);
+    //             }
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         })
+    // }
+
+    // useEffect(() => {
+    //     if (tutor._id) {
+    //         const fetchDataInfo = async () => {
+    //             try {
+    //                 const res = await axios.get(BaseUrl + `getInfo/${tutor._id}`);
+    //                 if (res.data.status) {
+    //                     setInfo(res.data.data);
+    //                     const params = res.data.data.youtubeLink.split('=');
+    //                     setYoutube(params[1])
+    //                 }
+    //             } catch (err) {
+    //                 console.log(err);
+    //             }
+    //         };
+
+    //         fetchDataInfo();
+    //     }
+    // }, [tutor]);
+
 
 
     return (
@@ -43,19 +97,19 @@ const Profile = () => {
             <LandNavBar />
 
 
-            <div className='container mt-5'>
+            <div className='container mt-5 mb-5'>
                 <div className='row'>
                     <div className='col-lg-4 text-center mx-auto'>
                         <img src={tutor.userImageUrl || avatar} alt='iod' className='w-50 rounded' />
                         <p><i className='fa fa-user'></i>{tutor.fullName}</p>
-                        <p><i className='fa fa-message'></i>{tutor.email}</p>
+                        <p><i className='fa fa-message'></i>{tutor.email}</p> 
                     </div>
 
                     <div className="col-md-8">
                         <div className="card">
                             <div className="card-body mt-3">
                                 <div className="text-center">
-                                    <button id="bttn" className=" fs-5 btn btn"> <i className="fa fa-flag" style={{color:'#FF9500'}} ></i></button>
+                                    <button id="bttn" className=" fs-5 btn btn"> <i className="fa fa-flag" style={{ color: '#FF9500' }} ></i></button>
                                     <button id="bttn" className=" fs-5 btn btn text-dark"> Availability</button>
                                 </div><br />
                                 <div>
@@ -87,33 +141,21 @@ const Profile = () => {
                             <hr />
                             <div>
                                 <h4 id="Document" className="title">Documents</h4>
-                                <div className='row'>
-                                    <div className='col-lg-3 shadow-sm bg-light p-5'>
-                                        <input type="file"  accept=".pdf,.doc,.docx" />
-                                 </div>
-                                    <div className='col-lg-3 shadow-sm bg-light p-5'>
-                                        <input type="file"  accept=".pdf,.doc,.docx" />
-                                 </div>
-                                    <div className='col-lg-3 shadow-sm bg-light p-5'>
-                                        <input type="file"  accept=".pdf,.doc,.docx" />
-                                 </div>
+                                <div className='row '>
+                                    {info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
+                                        <div className='col-lg-6 shadow-sm bg-light '>
+                                            <div className=' mx-auto text-center'>
+                                            <iframe autoplay='true' src={`https://www.youtube.com/embed/${youtube}?si=${youtube}`} title="YouTube video" allowfullscreen></iframe>
+                                                <div className=''>
+                                                        <h6> {post.title}</h6>
+                                            <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfLink}>Document PDF</a></em></p>
+                                                </div>
+                                            </div>
+
+                                    </div>
+                                        ))}
                                 </div>
 
-                            </div>
-                            <hr/>
-                            <div>
-                                <h4 id="videos">Videos</h4>
-                                <div className="row">
-                                    <div className="col-lg-4 ">
-                                        <video src={aderonke} controls className="w-100 h-50 shadow-1-strong rounded " alt="Boat on Calm Water"></video>
-                                    </div>
-                                    <div className="col-lg-4 ">
-                                        <video src={aderonke} controls className="w-100 h-50 shadow-1-strong rounded " alt="Boat on Calm Water"></video>
-                                    </div>
-                                    <div className="col-lg-4 ">
-                                        <video src={aderonke} controls className="w-100 h-50 shadow-1-strong rounded " alt="Boat on Calm Water"></video>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,9 +165,9 @@ const Profile = () => {
                 </div>
 
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }
 
-export default Profile
+export default Profile  

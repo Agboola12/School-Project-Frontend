@@ -4,6 +4,7 @@ import style from '../styles/LandNavBar.module.css'
 import Footer from '../Landing/Footer'
 import axios from 'axios'
 import BaseUrl from '../BaseUrl'
+import { useSelector } from 'react-redux'
 
 const Document = () => {
 
@@ -16,6 +17,8 @@ const Document = () => {
     const [info, setInfo] = useState([])
     const [editID, setEditID] = useState('')
     const [file, setFile] = useState(null);
+    const { loginAdmin: loginuser } = useSelector((state) => state.admin);
+
 
     const [user, setUser] = useState({});
 
@@ -59,6 +62,7 @@ const Document = () => {
         data.append("youtubeLink", youtubeLink.current.value)
         data.append("pdfLink", pdfLink.current.value)
         data.append("pdfFile", file);
+        data.append("userId", loginuser._id);
 
         setIsLoading(true);
         if (editID) {

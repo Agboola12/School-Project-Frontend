@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LandNavBar from './LandNavBar'
 import icon from '../images/Icon.png';
 import Abstract from '../images/Abstract.png';
@@ -27,14 +27,39 @@ import test2 from '../images/tes2.png'
 import test3 from '../images/tes3.png'
 import test4 from '../images/tes4.png'
 import { benefitContent } from '../Content';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import BaseUrl from '../BaseUrl';
+import axios from 'axios';
+import avatar from '../images/avatar.jpeg'
+
 
 
 
 
 const Home = () => {
     const [tab, setTab] = useState('yes')
+
+    const navigate = useNavigate();
+
+    const [users, setUser] = useState([])
+    useEffect(() => {
+        FetchData();
+    }, [])
+
+    const FetchData = () => {
+        axios.get(BaseUrl + 'getAllUser')
+            .then(res => {
+                setUser(res.data.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    const handlePost = (_id) => {
+        navigate("/tutordetails/?userId=" + _id)
+    }
     return (
         <>
             <div >
@@ -107,46 +132,23 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {/* lecturer */}       
+                    {/* lecturer */}
                     <div className='container mt-4'>
                         <p className='fw-bold h3 mb-5'>Our Lecturers</p>
                         <div className='row'>
-                            <div className='col-lg-3 shadow p-3  mx-auto text-center mb-5 rounded'>
-                                <div className='mb-3'>
-                                    <img src={teach} alt='iod' className='w-50 ' style={{ borderRadius: '20%' }} />
+                            {users.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((user, index) => (
+                                <div key={index} className='col-lg-3 mr-5 shadow border border-black p-3 mx-auto text-center mb-5 rounded'>
+                                    <div className='mb-3'>
+                                        <img src={user.userImageUrl || avatar} alt='Profile' className='w-50' style={{ borderRadius: '20%' }} />
+                                    </div>
+                                    <div>
+                                        <p className='fw-bold text-success'>{user.fullName}</p>
+                                        <p className='fw-bold text-success'>{user.email}</p>
+                                        <p>{user.department}</p>
+                                        <button onClick={() => handlePost(user._id)} className='btn btn-outline-success'>View More</button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p className='fw-bold'>Professor Adebite Hope</p>
-                                    <p>Physics and Mathematics</p>
-                                    <p>1,240 Students Tutored</p>
-                                    <button className='btn btn-outline-success'>View More</button>
-                                </div>
-                            </div>
-                            <div className='col-lg-3 shadow p-3  mx-auto text-center mb-5 rounded'>
-                                <div className='mb-3'>
-                                    <img src={teach} alt='iod' className='w-50' style={{ borderRadius: '20%' }} />
-                                </div>
-                                <div>
-                                    <p className='fw-bold'>Professor Adebite Hope</p>
-                                    <p>Physics and Mathematics</p>
-                                    <p>1,240 Students Tutored</p>
-                                    <button className='btn btn-outline-success'>View More</button>
-                                </div>
-                            </div>
-                            <div className='col-lg-3 shadow p-3  mx-auto text-center mb-5 rounded'>
-                                <div className='mb-3'>
-                                    <img src={teach} alt='iod' className='w-50 ' style={{ borderRadius: '20%' }} />
-                                </div>
-                                <div>
-                                    <p className='fw-bold'>Professor Adebite Hope</p>
-                                    <p>Physics and Mathematics</p>
-                                    <p>1,240 Students Tutored</p>
-                                    <button className='btn btn-outline-success'>View More</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='text-right'>
-                            <Link to="/tutors" className='nav-link'>View More</Link>
+                            ))}
                         </div>
                     </div>
 
