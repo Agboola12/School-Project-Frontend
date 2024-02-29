@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import TutorNavBar from './TeacherNavBar'
 import style from '../styles/LandNavBar.module.css'
 import Footer from '../Landing/Footer'
+import axios from 'axios'
+import BaseUrl from '../BaseUrl'
 
 const Document = () => {
     const title = useRef();
@@ -10,9 +12,62 @@ const Document = () => {
     const pdfLink = useRef();
     const [Error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false)
+    const [info, setInfo] = useState([])
 
+    const [result, setResult] = useState({
+        message: "",
+        status: false
+    })
 
+    useEffect(() => {
+        FetchData();
+    }, [])
+    const FetchData = () => {
+        axios.get(BaseUrl + 'getNews')
+            .then(data => {
+                setInfo(data.data.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
+    const handleSubmit = (resetForm) => {
+        const data = new FormData();
+        data.append("title", title.current.value)
+        data.append("youtubeLink", youtubeLink.current.value)
+        data.append("pdfLink", pdfLink.current.value)
+        data.append("pdfFile", pdfFile.current.value)
+
+        setIsLoading(true);
+        axios.post(BaseUrl + "tutorDocument", data).then(
+            res => {
+                if (res.data.status) {
+                    // FetchData();
+                }
+                else {
+                    setError(res.data.message);
+                }
+                setResult({
+                    message: res.data.message,
+                    status: res.data.status
+                })
+                setTimeout(() => {
+                    setResult({
+                        message: "",
+                        status: false
+                    });
+                    setError("");
+                    resetForm();
+                }, 3000);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    }
 
     return (
         <div>
@@ -66,7 +121,7 @@ const Document = () => {
                                     </div>
                                     <div className="col-lg-12">
                                         <div className="text-center mt-4">
-                                            <button type="submit" disabled={isLoading} name="submit" className="btn btn-main-1 w-100 text-medium text-light rounded-0 py-3 px-4" style={{ backgroundColor: '#FF9500' }} >
+                                            <button type="submit" disabled={isLoading} onClick={handleSubmit} name="submit" className="btn btn-main-1 w-100 text-medium text-light rounded-0 py-3 px-4" style={{ backgroundColor: '#FF9500' }} >
                                                 <b>
                                                     {isLoading ? "Loading..." : "Submit"}
                                                 </b>
