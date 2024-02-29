@@ -5,6 +5,7 @@ import teach from '../images/lectu.jpg'
 
 
 const AllLecturer = () => {
+    
     return (
         <div>
             <LandNavBar />

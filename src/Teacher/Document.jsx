@@ -232,12 +232,13 @@ const Document = () => {
                                         <div className="mb-3 border-bottom">
                                             <h6>{post.title}</h6>
                                             <p className="text-muted text-medium ft-sm"><em>Youtube Link: {post.youtubeLink}.</em></p>
-                                            <p className="text-muted text-medium ft-sm"><em>Document Link: {post.pdfLink}.</em></p>
+                                            {/* <p className="text-muted text-medium ft-sm"><em>Document Link: {post.pdfLink}.</em></p> */}
+                                <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p>
 
                                             {/* <iframe src={post.pdfFile} width="800" height="600" title="Document" className='bg-danger' /> */}
-                                            <a href={post.pdfFile} download>Download Document</a>
+                                            {/* <a href={post.pdfFile} download>Download Document</a> */}
 
-                                            <p className="text-muted text-medium ft-sm"><em>Document File: {post.pdfFile}.</em></p>
+                                            {/* <p className="text-muted text-medium ft-sm"><em>Document File: {post.pdfFile}.</em></p> */}
                                             <button type="submit" name="submit" onClick={() => DeleteInfo(post._id)} className="btn btn text-danger" >
                                                 <i className="fa fa-trash"></i>
                                             </button>
