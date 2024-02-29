@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import TutorNavBar from './TeacherNavBar'
 import style from '../styles/LandNavBar.module.css'
 import Footer from '../Landing/Footer'
@@ -33,15 +33,22 @@ const Document = () => {
             })
     }
 
+    const [file, setFile] = useState(null);
+
+    const handleFileChange = (e) => {
+      setFile(e.target.files[0]);
+    };
+    // console.log();
+
     const handleSubmit = (resetForm) => {
         const data = new FormData();
         data.append("title", title.current.value)
         data.append("youtubeLink", youtubeLink.current.value)
         data.append("pdfLink", pdfLink.current.value)
-        data.append("pdfFile", pdfFile.current.value)
+        data.append("pdfFile", file);
 
         setIsLoading(true);
-        axios.post(BaseUrl + "tutorDocument", data).then(
+        axios.post(BaseUrl + "tutorInfo", data).then(
             res => {
                 if (res.data.status) {
                     // FetchData();
@@ -116,8 +123,8 @@ const Document = () => {
                                             <label>Pdf Link</label>
                                         </div>
                                         <div className="form-floating mb-3">
-                                            <input type="file" ref={pdfFile} onChange={handleChange} />
-                                            <label>Pdf Link</label>
+                                            <label className=''> Document</label>
+                                            <input id="file" type="file" ref={pdfFile} onChange={handleFileChange } accept=".pdf,.doc,.docx .txt"  />
                                         </div>
                                     </div>
                                     <div className="col-lg-12">
@@ -135,6 +142,22 @@ const Document = () => {
                         <div className="col-lg-6 mb-lg-0 mb-5">
                             <div className=' mx-auto text-center'>
                                 <div style={{ height: '300px' }} className="overflow-auto bg-light p-lg-4 p-3 rounded">
+                                        <h5 className="text-center mb-5">Document</h5>
+                                        <hr />
+            {news.sort((a,b)=>b.createdAt.localeCompare(a.createdAt)).map((post) => (
+                                            <div className="mb-3 border-bottom">
+                                                <h6>{post.title}</h6>
+                                 <p className="line-clamp-3 ft-lg " dangerouslySetInnerHTML={{ __html: post.message }}></p>
+                                                <p className="text-muted text-medium ft-sm"><em>Published on {post.joinDate}.</em></p>
+                                                <button type="submit"  name="submit" onClick={() => DeleteNews(post._id)} className="btn btn text-danger" >
+                                                     <i className="fa fa-trash"></i>
+                                                </button>
+                                                <button type="submit" name="submit" onClick={() =>EditNews(post._id)} className="btn btn text-success  mr-2" >
+                                                <i className='fa fa-edit'></i>
+                                            </button>
+                                            </div>
+
+                                        ))}
                                 </div>
 
                             </div>

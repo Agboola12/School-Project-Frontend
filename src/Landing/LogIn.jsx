@@ -85,7 +85,7 @@ const LogIn = () => {
                   </div>
                   <div className="form-group mt-4">
                     <label for="password">Password</label>
-                    <input type="password" ref={password} className="form-control " required placeholder="Enter your Password" />
+                    <input type="password" ref={password} className="form-control" required  placeholder="Enter your Password" />
                   </div>
                   <div className="form-check mt-3">
                     <button disabled={isLoading} name="submit" onClick={handleLogin} className={`${style.container} btn btn-warning h-75 p-1 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>
