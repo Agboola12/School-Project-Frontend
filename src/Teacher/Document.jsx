@@ -52,7 +52,8 @@ const Document = () => {
     };
     // console.log();
 
-    const handleSubmit = (resetForm) => {
+    const handleSubmit = (e, resetForm) => {
+        e.preventDefault();
         const data = new FormData();
         data.append("title", title.current.value)
         data.append("youtubeLink", youtubeLink.current.value)
@@ -64,12 +65,8 @@ const Document = () => {
             axios.patch(BaseUrl +`EditInfo/${editID}`,data).then((res)=>{
                 if(res.data.status){
                     FetchData();
-                        // setUser({
-                    //         title: "",
-                    //         message: "",
-                    //     });
-                    // userImageUrl.current.value = '';
                     setEditID('')
+                    resetForm();
                 }
                 else {
                     setError(res.data.message);
@@ -84,7 +81,6 @@ const Document = () => {
                         status: false
                     });
                     setError("");
-                    resetForm();
                 }, 3000);
             }).catch((err) => {
                 console.log(err.message);
@@ -98,7 +94,7 @@ const Document = () => {
         axios.post(BaseUrl + "tutorInfo", data).then(
             res => {
                 if (res.data.status) {
-                    // FetchData();
+                    FetchData();
                 }
                 else {
                     setError(res.data.message);
@@ -123,6 +119,11 @@ const Document = () => {
                 setIsLoading(false);
             });
         }
+        setUser({});
+        title.current.value = '';
+        youtubeLink.current.value = '';
+        pdfLink.current.value = '';
+        pdfFile.current.value = '';
     }
 
     const DeleteInfo = (_id) => {
@@ -190,7 +191,7 @@ const Document = () => {
                             {result.message}
                         </div>
                         <div className="col-lg-6 mb-lg-0 mb-5">
-                            <form method="post" action="">
+                            <form method="post" action="" onSubmit={handleSubmit}> 
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="form-floating mb-3">
@@ -212,7 +213,7 @@ const Document = () => {
                                     </div>
                                     <div className="col-lg-12">
                                         <div className="text-center mt-4">
-                                            <button type="submit" disabled={isLoading} onClick={handleSubmit} name="submit" className="btn btn-main-1 w-100 text-medium text-light rounded-0 py-3 px-4" style={{ backgroundColor: '#FF9500' }} >
+                                            <button type="submit" disabled={isLoading}  name="submit" className="btn btn-main-1 w-100 text-medium text-light rounded-0 py-3 px-4" style={{ backgroundColor: '#FF9500' }} >
                                                 <b>
                                                     {isLoading ? "Loading..." : "Submit"}
                                                 </b>
