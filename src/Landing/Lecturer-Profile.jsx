@@ -99,10 +99,14 @@ const Profile = () => {
 
             <div className='container mt-5 mb-5'>
                 <div className='row'>
-                    <div className='col-lg-4 text-center mx-auto'>
-                        <img src={tutor.userImageUrl || avatar} alt='iod' className='w-50 rounded' />
-                        <p><i className='fa fa-user'></i>{tutor.fullName}</p>
-                        <p><i className='fa fa-message'></i>{tutor.email}</p>
+                    <div className='col-lg-4  '>
+                        <div style={{ width: '400px' }}>
+                            <img src={tutor.userImageUrl || avatar} alt='iod' className='w-50 ' />
+                            <div class="card-body">
+                                <h4><i className='fa fa-user'></i>{tutor.fullName}</h4>
+                                <p><i className='fa fa-envelope'></i>{tutor.email}</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="col-md-8">
@@ -140,20 +144,23 @@ const Profile = () => {
                             {/* Videos */}
                             <hr />
                             <div>
-                                <h4 id="Document" className="title">Documents</h4>
+                                <h4 id="Document">Documents</h4>
                                 <div className='row '>
                                     {info.length === 0 ? (
                                         <p>No documents available</p>
                                     ) : (
                                         info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
-                                            <div className='col-lg-6 shadow-sm bg-light '>
-                                                <div className=' mx-auto text-center'>
+                                            <div className='col-lg-5 mx-auto mt-3 '>
+                                                <div className="card shadow-sm bg-light" style={{ width: '300px' }}>
                                                     <iframe autoplay='true' src={`https://www.youtube.com/embed/${youtube}?si=${youtube}`} title="YouTube video" allowfullscreen></iframe>
-                                                    <div className=''>
+                                                    <div className="card-body">
                                                         <h6> {post.title}</h6>
                                                         <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfLink}>Document PDF</a></em></p>
+                                                        {/* <a href="#" className="btn btn-primary">See Profile</a> */}
                                                     </div>
                                                 </div>
+
+
 
                                             </div>
                                         ))
