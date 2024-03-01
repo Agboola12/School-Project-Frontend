@@ -6,14 +6,14 @@ import image from '../images/tes4.png'
 import icon1 from '../icons/arrow-left (1).svg'
 import icon2 from '../icons/arrow-right.svg'
 import icon3 from '../icons/arrow-up-right.svg'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useFormik } from 'formik';
 import axios from 'axios';
 import * as yup from "yup";
 import BaseUrl from '../BaseUrl'
 
 const Signup = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
 
   // const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -55,7 +55,7 @@ const Signup = () => {
               resetForm();
             }, 3000);
           }
-          navigate("/login")
+          // navigate("/login")
 
         })
         .catch((err) => {
