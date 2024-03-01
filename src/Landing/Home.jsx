@@ -41,6 +41,8 @@ const Home = () => {
     const [tab, setTab] = useState('yes')
 
     const navigate = useNavigate();
+    const [isLoad, setIsLoad] = useState(false)
+
 
     const [users, setUser] = useState([])
     useEffect(() => {
@@ -48,6 +50,7 @@ const Home = () => {
     }, [])
 
     const FetchData = () => {
+        setIsLoad(true)
         axios.get(BaseUrl + 'getAll')
             .then(res => {
                 setUser(res.data.data);
@@ -55,6 +58,9 @@ const Home = () => {
             .catch(err => {
                 console.log(err);
             })
+            .finally(() => {
+                setIsLoad(false);
+            });
     }
 
     const handlePost = (_id) => {
@@ -135,6 +141,11 @@ const Home = () => {
                     {/* lecturer */}
                     <div className='container mt-4'>
                         <p className='fw-bold h3 mb-5'>Our Lecturers</p>
+                        {isLoad ? (
+    <div className='text-center d-flex justify-content-center align-items-center' style={{ height: '50vh' }}>
+        <div className='spinner-grow text-dark'></div>
+    </div>
+) : (
                         <div className='row'>
                             {users.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((user, index) => (
                                 <div key={index} className='col-lg-3 mr-5 shadow border border-black p-3 mx-auto text-center mb-5 rounded'>
@@ -149,7 +160,10 @@ const Home = () => {
                                     </div>
                                 </div>
                             ))}
+                        <Link to="/tutors" style={{cursor: "pointer"}} className='text-right nav nav-link text-dark'>View More</Link>
                         </div>
+)}
+
                     </div>
 
 

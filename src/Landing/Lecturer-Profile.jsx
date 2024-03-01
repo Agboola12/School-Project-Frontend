@@ -102,7 +102,7 @@ const Profile = () => {
                     <div className='col-lg-4 text-center mx-auto'>
                         <img src={tutor.userImageUrl || avatar} alt='iod' className='w-50 rounded' />
                         <p><i className='fa fa-user'></i>{tutor.fullName}</p>
-                        <p><i className='fa fa-message'></i>{tutor.email}</p> 
+                        <p><i className='fa fa-message'></i>{tutor.email}</p>
                     </div>
 
                     <div className="col-md-8">
@@ -142,22 +142,22 @@ const Profile = () => {
                             <div>
                                 <h4 id="Document" className="title">Documents</h4>
                                 <div className='row '>
-                                {info.length === 0 ? (
-            <p>No documents available</p>
-        ) : (
-                                    info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
-                                        <div className='col-lg-6 shadow-sm bg-light '>
-                                            <div className=' mx-auto text-center'>
-                                            <iframe autoplay='true' src={`https://www.youtube.com/embed/${youtube}?si=${youtube}`} title="YouTube video" allowfullscreen></iframe>
-                                                <div className=''>
+                                    {info.length === 0 ? (
+                                        <p>No documents available</p>
+                                    ) : (
+                                        info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
+                                            <div className='col-lg-6 shadow-sm bg-light '>
+                                                <div className=' mx-auto text-center'>
+                                                    <iframe autoplay='true' src={`https://www.youtube.com/embed/${youtube}?si=${youtube}`} title="YouTube video" allowfullscreen></iframe>
+                                                    <div className=''>
                                                         <h6> {post.title}</h6>
-                                            <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfLink}>Document PDF</a></em></p>
+                                                        <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfLink}>Document PDF</a></em></p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                    </div>
-                                          ))
-                                          )}
+                                            </div>
+                                        ))
+                                    )}
                                 </div>
 
                             </div>
