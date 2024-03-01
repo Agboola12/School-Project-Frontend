@@ -142,7 +142,10 @@ const Profile = () => {
                             <div>
                                 <h4 id="Document" className="title">Documents</h4>
                                 <div className='row '>
-                                    {info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
+                                {info.length === 0 ? (
+            <p>No documents available</p>
+        ) : (
+                                    info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
                                         <div className='col-lg-6 shadow-sm bg-light '>
                                             <div className=' mx-auto text-center'>
                                             <iframe autoplay='true' src={`https://www.youtube.com/embed/${youtube}?si=${youtube}`} title="YouTube video" allowfullscreen></iframe>
@@ -153,7 +156,8 @@ const Profile = () => {
                                             </div>
 
                                     </div>
-                                        ))}
+                                          ))
+                                          )}
                                 </div>
 
                             </div>

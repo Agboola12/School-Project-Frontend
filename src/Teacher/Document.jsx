@@ -18,6 +18,8 @@ const Document = () => {
     const [editID, setEditID] = useState('')
     const [file, setFile] = useState(null);
     const { loginAdmin: loginuser } = useSelector((state) => state.admin);
+    const [isLoad, setIsLoad] = useState(false)
+    
 
 
     const [user, setUser] = useState({});
@@ -228,7 +230,34 @@ const Document = () => {
                             </form>
                         </div>
                         <div className="col-lg-6 mb-lg-0 mb-5">
+
                             <div className=' mx-auto text-center'>
+                                <div style={{ height: '300px' }} className="overflow-auto bg-light p-lg-4 p-3 rounded">
+                                    <h5 className="text-center mb-5">Document</h5>
+     
+                                    
+                                        {info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
+                                            <div className="mb-3 border-bottom">
+                                                <h6>{post.title}</h6>
+                                                <p className="text-muted text-medium ft-sm"><em>Youtube Link: {post.youtubeLink}.</em></p>
+                                                <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p>
+                                                <button type="submit" name="submit" onClick={() => DeleteInfo(post._id)} className="btn btn text-danger" >
+                                                    <i className="fa fa-trash"></i>
+                                                </button>
+                                                <button type="submit" name="submit" onClick={() => EditInfo(post._id)} className="btn btn text-success  mr-2" >
+                                                    <i className='fa fa-edit'></i>
+                                                </button>
+                                            </div>
+                                        ))}
+                                    
+
+
+                                </div>
+                            </div>
+
+
+
+                            {/* <div className=' mx-auto text-center'>
                                 <div style={{ height: '300px' }} className="overflow-auto bg-light p-lg-4 p-3 rounded">
                                     <h5 className="text-center mb-5">Document</h5>
                                     <hr />
@@ -237,24 +266,27 @@ const Document = () => {
                                             <h6>{post.title}</h6>
                                             <p className="text-muted text-medium ft-sm"><em>Youtube Link: {post.youtubeLink}.</em></p>
                                             {/* <p className="text-muted text-medium ft-sm"><em>Document Link: {post.pdfLink}.</em></p> */}
-                                            <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p>
+                            {/* <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p> */}
 
-                                            {/* <iframe src={post.pdfFile} width="800" height="600" title="Document" className='bg-danger' /> */}
-                                            {/* <a href={post.pdfFile} download>Download Document</a> */}
+                            {/* <iframe src={post.pdfFile} width="800" height="600" title="Document" className='bg-danger' /> */}
+                            {/* <a href={post.pdfFile} download>Download Document</a> */}
 
-                                            {/* <p className="text-muted text-medium ft-sm"><em>Document File: {post.pdfFile}.</em></p> */}
-                                            <button type="submit" name="submit" onClick={() => DeleteInfo(post._id)} className="btn btn text-danger" >
-                                                <i className="fa fa-trash"></i>
-                                            </button>
-                                            <button type="submit" name="submit" onClick={() => EditInfo(post._id)} className="btn btn text-success  mr-2" >
-                                                <i className='fa fa-edit'></i>
-                                            </button>
-                                        </div>
+                            {/* <p className="text-muted text-medium ft-sm"><em>Document File: {post.pdfFile}.</em></p> */}
+                            {/* <button type="submit" name="submit" onClick={() => DeleteInfo(post._id)} className="btn btn text-danger" > */}
+                            {/* <i className="fa fa-trash"></i> */}
+                            {/* </button> */}
+                            {/* <button type="submit" name="submit" onClick={() => EditInfo(post._id)} className="btn btn text-success  mr-2" > */}
+                            {/* <i className='fa fa-edit'></i> */}
+                            {/* </button> */}
+                            {/* </div> */}
 
-                                    ))}
-                                </div>
+                            {/* ))} */}
+                            {/* </div> */}
 
-                            </div>
+                            {/* </div> */}
+
+
+
                         </div>
                     </div>
                 </div>

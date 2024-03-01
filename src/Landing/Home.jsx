@@ -48,7 +48,7 @@ const Home = () => {
     }, [])
 
     const FetchData = () => {
-        axios.get(BaseUrl + 'getAllUser')
+        axios.get(BaseUrl + 'getAll')
             .then(res => {
                 setUser(res.data.data);
             })
