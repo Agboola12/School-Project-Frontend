@@ -30,6 +30,9 @@ const LandNavBar = () => {
                 <li className="nav-item dropdown list-line-item mr-5 " >
                   <Link to="/about" className="nav-link active text-center">About Us </Link>
                 </li>
+                <li className="nav-item dropdown list-line-item mr-5 " >
+                  <Link to="/testimonies" className="nav-link active text-center">Feedback </Link>
+                </li>
 
                 <li className="nav-item dropdown list-line-item mr-5 " >
                   <Link to="/contact" className='nav-link active text-center'>

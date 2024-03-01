@@ -16,6 +16,8 @@ import axios from "axios";
 import EditProfile from "./Teacher/Edit-Profile";
 import VerificationToken from "./Landing/VerificationToken";
 import ForgottenPassword from "./Landing/ForgottenPassword";
+import ComfirmPassword from "./Landing/ConfirmPassword";
+import Testimonies from "./Landing/Testimonies";
 
 axios.interceptors.request.use((value) =>{
   value.headers = {
@@ -37,10 +39,12 @@ const Routing = () => {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/tutors" element={<AllLecturer />} />
         <Route path="/tutordetails" element={<Profile />} />
+        <Route path="/testimonies" element={<Testimonies />} />
 
         {/* Tutor */}
         <Route path="/verify/" element={<VerificationToken/>}/>
         <Route path="/forgotten-password" element={<ForgottenPassword/>}/>
+        <Route path="/confirmPassword" element={<ComfirmPassword/>}/>
 
 
         <Route path="/" element={<AdminGuard />}>

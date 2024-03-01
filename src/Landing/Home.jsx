@@ -180,7 +180,7 @@ const Home = () => {
                                 <p>Lorem ipsum dolor sit amet consectetur. Tempus tincidunt  etiam eget elit id imperdiet et.
                                     Cras eu sit dignissim <br />lorem nibh et. Ac cum eget habitasse  in velit fringilla feugiat senectus in.</p>
                             </em>
-                            <button className='btn btn bg-white text-dark fw-bold text-right mt-5 ml-auto'>View All</button>
+                            {/* <button className='btn btn bg-white text-dark fw-bold text-right mt-5 ml-auto'>View All</button> */}
                         </div>
 
                         <div className='row mt-5'>
