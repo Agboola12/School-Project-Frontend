@@ -45,8 +45,10 @@ const Home = () => {
 
 
     const [users, setUser] = useState([])
+    const [Testimony, setTestimony] = useState([])
     useEffect(() => {
         FetchData();
+        FetchTestimony();
     }, [])
 
     const FetchData = () => {
@@ -54,6 +56,20 @@ const Home = () => {
         axios.get(BaseUrl + 'getAll')
             .then(res => {
                 setUser(res.data.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+            .finally(() => {
+                setIsLoad(false);
+            });
+    }
+
+    const FetchTestimony = () => {
+        setIsLoad(true)
+        axios.get(BaseUrl + 'getTestimony')
+            .then(res => {
+                setTestimony(res.data.data);
             })
             .catch(err => {
                 console.log(err);
@@ -140,33 +156,33 @@ const Home = () => {
 
                     {/* lecturer */}
                     <div className='container mt-4'>
-                    <div className='d-flex'>
+                        <div className='d-flex'>
                             <em className='text-left'>
-                        <p className='fw-bold h3 mb-5'>Our Lecturers</p>
+                                <p className='fw-bold h3 mb-5'>Our Lecturers</p>
                             </em>
-                            <Link to="/tutors" style={{cursor: 'pointer'}} className='btn btn bg-white text-dark nav-link text-right fw-bold p-2 mt-3 ml-auto'>View All</Link>
+                            <Link to="/tutors" style={{ cursor: 'pointer' }} className='btn btn bg-white text-dark nav-link text-right fw-bold p-2 mt-3 ml-auto'>View All</Link>
                         </div>
                         {isLoad ? (
-    <div className='text-center d-flex justify-content-center align-items-center' style={{ height: '50vh' }}>
-        <div className='spinner-grow text-dark'></div>
-    </div>
-) : (
-                        <div className='row'>
-                            {users.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((user, index) => (
-                                <div key={index} className='col-lg-3 mr-5 shadow border border-black p-3 mx-auto text-center mb-5 rounded'>
-                                    <div className='mb-3'>
-                                        <img src={user.userImageUrl || avatar} alt='Profile' className='w-50' style={{ borderRadius: '20%' }} />
+                            <div className='text-center d-flex justify-content-center align-items-center' style={{ height: '50vh' }}>
+                                <div className='spinner-grow text-dark'></div>
+                            </div>
+                        ) : (
+                            <div className='row'>
+                                {users.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((user, index) => (
+                                    <div key={index} className='col-lg-3 mr-5 shadow border border-black p-3 mx-auto text-center mb-5 rounded'>
+                                        <div className='mb-3'>
+                                            <img src={user.userImageUrl || avatar} alt='Profile' className='w-50' style={{ borderRadius: '20%' }} />
+                                        </div>
+                                        <div>
+                                            <p className='fw-bold text-success'>{user.fullName}</p>
+                                            <p className='fw-bold text-success'>{user.email}</p>
+                                            <p>{user.department}</p>
+                                            <button onClick={() => handlePost(user._id)} className='btn btn-outline-success'>View Profile</button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className='fw-bold text-success'>{user.fullName}</p>
-                                        <p className='fw-bold text-success'>{user.email}</p>
-                                        <p>{user.department}</p>
-                                        <button onClick={() => handlePost(user._id)} className='btn btn-outline-success'>View Profile</button>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-)}
+                                ))}
+                            </div>
+                        )}
 
                     </div>
 
@@ -184,69 +200,19 @@ const Home = () => {
                         </div>
 
                         <div className='row mt-5'>
-                            <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
-                                <div className=''>
-                                    <p>“ The web design course provided a solid foundation for me.
-                                        The instructors were knowledgeable and supportive, and the interactive learning environment was engaging.
-                                        I highly recommend it! ”</p>
-                                    <div className='d-flex mt-4 mb-4'>
-                                        <p className=' mr-auto  text-dark'>
-                                            <img src={test1} alt='kdnf' />
-                                            <p>Sarah L</p>
-                                        </p>
-                                        <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
-                                <div className=''>
-                                    <p>“The UI/UX design course exceeded my expectations. The instructor's expertise and
-                                        practical assignments helped me improve my design skills. I feel more confident in my
-                                        career now. Thank you!”
-                                    </p>
-                                    <div className='d-flex mt-4 mb-4'>
-                                        <p className=' mr-auto  text-dark'>
-                                            <img src={test2} alt='kdnf' />
-                                            <p>Jason M</p>
-                                        </p>
-                                        <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
-                                    </div>
-                                </div>
-                            </div>
+                        {Testimony.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post, index) => (
 
-                        </div>
-                        <div className='row mt-2'>
-                            <div className='col-lg-5   shadow-sm p-5 mx-auto mb-5 bg-white rounded-lg'>
+                            <div className='col-lg-5 mr-5  shadow-sm p-5 mx-auto  mb-5 bg-white rounded'>
                                 <div className=''>
-                                    <p>
-                                        “The mobile app development course was fantastic! The step-by-step tutorials and hands-on projects helped
-                                        me grasp the concepts easily. I'm now building my own app. Great course!”
-                                    </p>
+                                    <p>“ {post.message} ”</p>
                                     <div className='d-flex mt-4 mb-4'>
-                                        <p className=' mr-auto  text-dark'>
-                                            <img src={test3} alt='kdnf' />
-                                            <p>Emily K</p>
+                                        <p className=' ml-auto  text-dark'>
+                                            <p>{post.fullName}</p>
                                         </p>
-                                        <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-lg-5   shadow-sm p-5 mx-auto mb-5 bg-white rounded-lg'>
-                                <div className=''>
-                                    <p>
-                                        “I enrolled in the graphic design course as a beginner, and it was the perfect starting
-                                        point. The instructor's guidance and feedback improved my design abilities significantly.
-                                        I'm grateful for this course!”
-                                    </p>
-                                    <div className='d-flex mt-4 mb-4'>
-                                        <p className=' mr-auto  text-dark'>
-                                            <img src={test4} alt='kdnf' />
-                                            <p>Michael K</p>
-                                        </p>
-                                        <button className='btn btn bg-light text-dark fw-bold text-right ml-auto'>Read Full story</button>
-                                    </div>
-                                </div>
-                            </div>
+                                ))}
                         </div>
                     </div>
 

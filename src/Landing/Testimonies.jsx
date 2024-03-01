@@ -25,7 +25,7 @@ const Testimonies = () => {
 
         setIsLoading(true);
 
-        axios.post(BaseUrl + 'schoolTestimony', info )
+        axios.post(BaseUrl + 'userTestimony', info )
         .then((res)=>{
             if(res.data.status){
                 setResult({
