@@ -14,6 +14,7 @@ import Document from "./Teacher/Document";
 import AdminGuard from "./Guard/adminGuard";
 import axios from "axios";
 import EditProfile from "./Teacher/Edit-Profile";
+import VerificationToken from "./Landing/VerificationToken";
 
 axios.interceptors.request.use((value) =>{
   value.headers = {
@@ -37,6 +38,9 @@ const Routing = () => {
         <Route path="/tutordetails" element={<Profile />} />
 
         {/* Tutor */}
+        <Route path="/verify/" element={<VerificationToken/>}/>
+
+
         <Route path="/" element={<AdminGuard />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/document" element={<Document />} />

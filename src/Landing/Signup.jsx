@@ -41,7 +41,7 @@ const Signup = () => {
       setIsLoading(true);
       axios.post(BaseUrl + "tutorRegister", values).then(
         res => {
-          if (res.data.status) {
+          // if (res.data.status) {
             setResult({
               message: res.data.message,
               status: res.data.status
@@ -54,7 +54,7 @@ const Signup = () => {
               setError("");
               resetForm();
             }, 3000);
-          }
+          // }
           // navigate("/login")
 
         })

@@ -8,6 +8,7 @@ const VerificationToken = ({  }) => {
 const navigate = useNavigate();
 const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
+    console.log(queryParams);
 
     const paramValue = queryParams.get('token');
 
@@ -34,7 +35,7 @@ const location = useLocation();
   }, [paramValue]);
 
   return (
-    <div className='text-center mx-auto mt-5'>
+    <div className='text-center mx-auto '>
       <h1>Verification Status</h1>
       <p>{verificationStatus}</p>
     </div>
