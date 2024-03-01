@@ -39,7 +39,7 @@ const Profile = () => {
                     const res = await axios.get(BaseUrl + `getInfo/${tutor._id}`);
                     if (res.data.status) {
                         setInfo(res.data.data);
-                        const params = res.data.data.youtubeLink.split('=');
+                        const params = res.data.data[0].youtubeLink.split('=');
                         setYoutube(params[1]);
                     }
                 } catch (err) {
@@ -154,11 +154,12 @@ const Profile = () => {
                                         info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
                                             <div className='col-lg-5 mx-auto mt-3 '>
                                                 <div className="card shadow-sm bg-light" style={{ width: '300px' }}>
-                                                    <iframe autoplay='true' src={`https://www.youtube.com/embed/${youtube}?si=${youtube}`} title="YouTube video" allowfullscreen></iframe>
+                                                    <iframe autoplay='true' src={`https://www.youtube.com/embed/${post.youtubeLink.split('=')[1]}?si=${post.youtubeLink.split('=')[1]}`} title="YouTube video" allowfullscreen></iframe>
                                                     <div className="card-body">
                                                         <h6> {post.title}</h6>
-                                                        <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfLink}>Document PDF</a></em></p>
-                                                        {/* <a href="#" className="btn btn-primary">See Profile</a> */}
+                                                        {/* <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfLink}>Document PDF</a></em></p> */}
+                                                        <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfFile}>Document PDF</a></em></p>
+                                                    
                                                     </div>
                                                 </div>
 

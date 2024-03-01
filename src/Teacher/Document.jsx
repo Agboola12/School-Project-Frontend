@@ -214,7 +214,7 @@ const Document = () => {
                                         </div>
                                         <div className="form-floating mb-3">
                                             <label className=''> Document</label>
-                                            <input id="file" type="file" ref={pdfFile} onChange={handleFileChange} accept=".pdf,.doc,.docx .txt" />
+                                            <input id="file" type="file" ref={pdfFile} onChange={handleFileChange} accept="" />
                                         </div>
                                     </div>
                                     <div className="col-lg-12">
@@ -241,6 +241,8 @@ const Document = () => {
                                                 <h6>{post.title}</h6>
                                                 <p className="text-muted text-medium ft-sm"><em>Youtube Link: {post.youtubeLink}.</em></p>
                                                 <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p>
+                            <iframe src={post.pdfFile}   title="Document"  />
+
                                                 <button type="submit" name="submit" onClick={() => DeleteInfo(post._id)} className="btn btn text-danger" >
                                                     <i className="fa fa-trash"></i>
                                                 </button>

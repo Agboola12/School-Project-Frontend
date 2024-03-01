@@ -15,8 +15,8 @@ const LogIn = () => {
 
   const email = useRef();
   const password = useRef();
-    const [Error, setError] = useState("");
-    const navigate = useNavigate();
+  const [Error, setError] = useState("");
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false)
 
 
@@ -44,11 +44,11 @@ const LogIn = () => {
         })
         setTimeout(() => {
           setResult({
-              message: "",
-              status: false
+            message: "",
+            status: false
           });
           setError("");
-      }, 3000);
+        }, 3000);
       }).catch(err => {
         console.log(err.message)
       })
@@ -85,7 +85,7 @@ const LogIn = () => {
                   </div>
                   <div className="form-group mt-4">
                     <label for="password">Password</label>
-                    <input type="password" ref={password} className="form-control" required  placeholder="Enter your Password" />
+                    <input type="password" ref={password} className="form-control" required placeholder="Enter your Password" />
                   </div>
                   <div className="form-check mt-3">
                     <button disabled={isLoading} name="submit" onClick={handleLogin} className={`${style.container} btn btn-warning h-75 p-1 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>
@@ -99,9 +99,9 @@ const LogIn = () => {
                 <p className="text-center">Or </p>
                 <div className="text-center">
 
-                  <p className="btn btn-white text-black btn-light p-2 fw-bold">
-                    <i className='fab fa-google text-danger mr-2'></i>
-                    Sign Up with Google</p>
+                  <Link to="/forgotten-password" className="btn btn-white text-black btn-light p-2 fw-bold">
+                    Forgotten Password
+                  </Link>
                 </div>
                 <div className="col-lg-12 order-lg-1 text-center m-4">
                   <p>Don't have an account?
