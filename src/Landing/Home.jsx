@@ -140,7 +140,12 @@ const Home = () => {
 
                     {/* lecturer */}
                     <div className='container mt-4'>
+                    <div className='d-flex'>
+                            <em className='text-left'>
                         <p className='fw-bold h3 mb-5'>Our Lecturers</p>
+                            </em>
+                            <Link to="/tutors" style={{cursor: 'pointer'}} className='btn btn bg-white text-dark nav-link text-right fw-bold p-2 mt-3 ml-auto'>View All</Link>
+                        </div>
                         {isLoad ? (
     <div className='text-center d-flex justify-content-center align-items-center' style={{ height: '50vh' }}>
         <div className='spinner-grow text-dark'></div>
@@ -156,11 +161,10 @@ const Home = () => {
                                         <p className='fw-bold text-success'>{user.fullName}</p>
                                         <p className='fw-bold text-success'>{user.email}</p>
                                         <p>{user.department}</p>
-                                        <button onClick={() => handlePost(user._id)} className='btn btn-outline-success'>View More</button>
+                                        <button onClick={() => handlePost(user._id)} className='btn btn-outline-success'>View Profile</button>
                                     </div>
                                 </div>
                             ))}
-                        <Link to="/tutors" style={{cursor: "pointer"}} className='text-right nav nav-link text-dark'>View More</Link>
                         </div>
 )}
 

@@ -46,7 +46,7 @@ const AllLecturer = () => {
                                 <p className='fw-bold text-success'>{user.fullName}</p>
                                 <p className='fw-bold text-success'>{user.email}</p>
                                 <p>{user.department}</p>
-                                <button onClick={() => handlePost(user._id)} className='btn btn-outline-success'>View More</button>
+                                <button onClick={() => handlePost(user._id)} className='btn btn-outline-success'>View Profile</button>
                             </div>
                         </div>
                     ))}

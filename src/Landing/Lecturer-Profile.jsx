@@ -51,7 +51,9 @@ const Profile = () => {
         fetchDataInfo();
     }, [tutor]);
 
-
+    const handleEmailClick = (email) => {
+        window.location.href = `mailto:${email}`
+    }
 
 
 
@@ -104,7 +106,7 @@ const Profile = () => {
                             <img src={tutor.userImageUrl || avatar} alt='iod' className='w-50 ' />
                             <div class="card-body">
                                 <h4><i className='fa fa-user'></i>{tutor.fullName}</h4>
-                                <p><i className='fa fa-envelope'></i>{tutor.email}</p>
+                                <p style={{cursor: 'pointer'}} onClick={() => handleEmailClick(tutor.email)}><i className='fa fa-envelope'></i>{tutor.email}</p>
                             </div>
                         </div>
                     </div>
