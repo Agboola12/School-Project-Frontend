@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import LandNavBar from '../Landing/LandNavBar'
 import Footer from '../Landing/Footer'
 import style from '../styles/LandNavBar.module.css'
+import axios from 'axios'
+import BaseUrl from '../BaseUrl'
 
 
 const Testimonies = () => {
@@ -28,6 +30,8 @@ const Testimonies = () => {
         axios.post(BaseUrl + 'userTestimony', info )
         .then((res)=>{
             if(res.data.status){
+                fullName.current.value =""
+             message.current.value=""
                 setResult({
                     message: res.data.message,
                     status: res.data.status,
@@ -73,7 +77,7 @@ const Testimonies = () => {
                                         <input type="text" ref={fullName} className="form-control  d-grid col-12" required placeholder="Enter your FullName" />
                                     </div>
                                     <div className="form-group">
-                                        <textarea type="message" ref={message} className="form-control  d-grid col-12" required placeholder="Enter your Messgae" />
+                                        <textarea type="message" ref={message} className="form-control  d-grid h-100 col-12" required placeholder="Enter your Messgae" />
                                     </div>
                                     <div className="form-check mt-5">
                                         <button disabled={isLoading} name="submit" className={`${style.container} btn btn-warning h-75 p-2 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>
