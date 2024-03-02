@@ -156,7 +156,8 @@ const Profile = () => {
                                                 <div className="card shadow-sm bg-light" style={{ width: '300px' }}>
                                                     <iframe autoplay='true' src={`https://www.youtube.com/embed/${post.youtubeLink.split('=')[1]}?si=${post.youtubeLink.split('=')[1]}`} title="YouTube video" allowfullscreen></iframe>
                                                     <div className="card-body">
-                                                        <h6> {post.title}</h6>
+                                                        <h2> {post.courseTitle}</h2>
+                                                        <h6> {post.courseCode}</h6>
                                                         {/* <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfLink}>Document PDF</a></em></p> */}
                                                         <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfFile}>Document PDF</a></em></p>
                                                     

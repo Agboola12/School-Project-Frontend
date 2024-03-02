@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux'
 
 const Document = () => {
 
-    const title = useRef();
+    const courseTitle = useRef();
+    const courseCode = useRef();
     const youtubeLink = useRef();
     const pdfLink = useRef();
     const pdfFile = useRef();
@@ -60,7 +61,8 @@ const Document = () => {
     const handleSubmit = (e, resetForm) => {
         e.preventDefault();
         const data = new FormData();
-        data.append("title", title.current.value)
+        data.append("courseTitle", courseTitle.current.value)
+        data.append("courseCode", courseCode.current.value)
         data.append("youtubeLink", youtubeLink.current.value)
         data.append("pdfLink", pdfLink.current.value)
         data.append("pdfFile", file);
@@ -126,7 +128,8 @@ const Document = () => {
                 });
         }
         setUser({});
-        title.current.value = '';
+        courseTitle.current.value = '';
+        courseCode.current.value = '';
         youtubeLink.current.value = '';
         pdfLink.current.value = '';
         pdfFile.current.value = '';
@@ -201,8 +204,12 @@ const Document = () => {
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="form-floating mb-3">
-                                            <input name='title' type='text' className="form-control" onChange={inputIsChanging} value={user?.title} ref={title} placeholder=" Title" />
-                                            <label>Title</label>
+                                            <input name='courseTitle' type='text' className="form-control" onChange={inputIsChanging} value={user?.courseTitle} ref={courseTitle} placeholder="Course Title" />
+                                            <label>Course Title</label>
+                                        </div>
+                                        <div className="form-floating mb-3">
+                                            <input name='courseCode' type='text' className="form-control" onChange={inputIsChanging} value={user?.courseCode} ref={courseCode} placeholder=" Course Code" />
+                                            <label>Course Code </label>
                                         </div>
                                         <div className="form-floating mb-3">
                                             <input name='youtubeLink' type='text' className="form-control" onChange={inputIsChanging} value={user?.youtubeLink} ref={youtubeLink} placeholder="Youtube" />
@@ -238,7 +245,8 @@ const Document = () => {
                                     
                                         {info.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((post) => (
                                             <div className="mb-3 border-bottom">
-                                                <h6>{post.title}</h6>
+                                                <h6>{post.courseTitle}</h6>
+                                                <h6>{post.courseCode}</h6>
                                                 <p className="text-muted text-medium ft-sm"><em>Youtube Link: {post.youtubeLink}.</em></p>
                                                 <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p>
                             <iframe src={post.pdfFile}   title="Document"  />
