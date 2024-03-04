@@ -77,7 +77,7 @@ const Testimonies = () => {
                                         <input type="text" ref={fullName} className="form-control  d-grid col-12" required placeholder="Enter your FullName" />
                                     </div>
                                     <div className="form-group">
-                                        <textarea type="message" ref={message} className="form-control  d-grid  col-12" required placeholder="Enter your Messgae" />
+                                        <textarea type="message" ref={message} className="form-control  d-grid  col-12" style={{ height: '200px' }} required placeholder="Enter your Messgae" />
                                     </div>
                                     <div className="form-check mt-5">
                                         <button disabled={isLoading} name="submit" className={`${style.container} btn btn-warning h-75 p-2 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>
