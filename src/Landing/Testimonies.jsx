@@ -62,7 +62,7 @@ const Testimonies = () => {
                 <div className="container p-4">
                     <div className="row justify-content-center">
                         <div className="col-lg-8 ">
-                            <div className=" p-4 mb-5 bg-white p-5">
+                            <div className=" p-4 mb-5 bg-white p-5 ">
                                 <h2 className="text-center fw-bold">Testimony</h2>
                                 <p>
                                     <b className="text-danger">{error}</b>
@@ -77,7 +77,7 @@ const Testimonies = () => {
                                         <input type="text" ref={fullName} className="form-control  d-grid col-12" required placeholder="Enter your FullName" />
                                     </div>
                                     <div className="form-group">
-                                        <textarea type="message" ref={message} className="form-control  d-grid h-100 col-12" required placeholder="Enter your Messgae" />
+                                        <textarea type="message" ref={message} className="form-control  d-grid  col-12" required placeholder="Enter your Messgae" />
                                     </div>
                                     <div className="form-check mt-5">
                                         <button disabled={isLoading} name="submit" className={`${style.container} btn btn-warning h-75 p-2 fw-bold fs-4 d-grid gap-2 col-12 mx-auto`}>

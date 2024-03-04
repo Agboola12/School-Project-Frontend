@@ -9,6 +9,8 @@ import avatar from '../images/avatar.jpeg'
 
 const AllLecturer = () => {
     const navigate = useNavigate();
+    const [searchTerm, setSearchTerm] = useState('');
+
 
     const [users, setUser] = useState([])
     useEffect(() => {
@@ -29,6 +31,15 @@ const AllLecturer = () => {
         navigate("/tutordetails/?userId=" + _id)
     }
 
+    const handleSearch = (e) => {
+        setSearchTerm(e.target.value);
+      };
+    
+      const filteredMembers = users.filter((member) =>
+      member.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      member.department.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
 
     return (
         <div>
@@ -36,8 +47,9 @@ const AllLecturer = () => {
 
             <div className='container mt-4'>
                 <p className='fw-bold h3 text-center mt-5 mb-5'>Our Lecturers</p>
+            <input type='text' name='search' style={{textAlign: 'center'}} placeholder='Search for a member' value={searchTerm} onChange={handleSearch} className='w-75 mx-auto centered-placeholder form-control mb-4'/>
                 <div className='row '>
-                    {users.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((user, index) => (
+                    {filteredMembers.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((user, index) => (
                         <div key={index} className='col-lg-3 mr-5 shadow border border-black p-3 mx-auto text-center mb-5 rounded'>
                             <div className='mb-3'>
                                 <img src={user.userImageUrl || avatar} alt='Profile' className='w-50' style={{ borderRadius: '20%' }} />
@@ -54,6 +66,7 @@ const AllLecturer = () => {
 
 
             </div>
+            
         </div>
     )
 }
