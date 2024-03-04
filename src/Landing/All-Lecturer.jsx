@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import BaseUrl from '../BaseUrl'
 import axios from 'axios'
 import avatar from '../images/avatar.jpeg'
+import Footer from './Footer'
 
 
 
@@ -66,7 +67,7 @@ const AllLecturer = () => {
 
 
             </div>
-            
+            <Footer/>
         </div>
     )
 }
