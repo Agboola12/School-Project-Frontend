@@ -42,7 +42,7 @@ const Document = () => {
         FetchData();
     }, [])
     const FetchData = () => {
-        axios.get(BaseUrl + 'getDocument')
+        axios.get(BaseUrl + `getDocument/${loginuser._id}`)
             .then(res => {
                 console.log(res.data.data);
                 setInfo(res.data.data);
@@ -248,8 +248,10 @@ const Document = () => {
                                                 <h6>{post.courseTitle}</h6>
                                                 <h6>{post.courseCode}</h6>
                                                 <p className="text-muted text-medium ft-sm"><em>Youtube Link: {post.youtubeLink}.</em></p>
-                                                <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p>
-                            <iframe src={post.pdfFile}   title="Document"  />
+                                                {/* <p className="text-muted text-medium ft-sm"><em>Document Link:<a href={post.pdfLink}>{post.pdfLink}</a></em></p> */}
+                            {/* <iframe src={post.pdfFile}   title="Document"  /> */}
+                            <p className="text-muted text-medium ft-sm"><em>Download The Document: <a href={post.pdfFile}>Document PDF</a></em></p>
+
 
                                                 <button type="submit" name="submit" onClick={() => DeleteInfo(post._id)} className="btn btn text-danger" >
                                                     <i className="fa fa-trash"></i>
