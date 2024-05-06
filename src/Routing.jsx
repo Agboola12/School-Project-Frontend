@@ -18,6 +18,7 @@ import VerificationToken from "./Landing/VerificationToken";
 import ForgottenPassword from "./Landing/ForgottenPassword";
 import ComfirmPassword from "./Landing/ConfirmPassword";
 import Testimonies from "./Landing/Testimonies";
+// import Payment from "./Landing/Payment";
 
 axios.interceptors.request.use((value) =>{
   value.headers = {
@@ -46,7 +47,7 @@ const Routing = () => {
         <Route path="/forgotten-password" element={<ForgottenPassword/>}/>
         <Route path="/confirmPassword" element={<ComfirmPassword/>}/>
 
-
+       
         <Route path="/" element={<AdminGuard />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/document" element={<Document />} />
