@@ -11,7 +11,7 @@ const Footer = () => {
     <div className="row">
         <div className="col-lg-3 mb-lg-0 mb-3">
             <h6 className="text-medium text-uppercase text-white">
-            <img src={logo} alt='ksdj' style={{width:'60%'}} />
+            <img src={logo} alt='ksdj' style={{width:'200px'}} />
             </h6>
         </div>
         <div className="col-lg-3 mb-lg-0 mb-3">
