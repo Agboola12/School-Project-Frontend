@@ -17,7 +17,7 @@ const LandNavBar = () => {
           <nav className="navbar navbar-expand-sm navbar-light " id="home" >
 
             <a href="" className="navbar-brand p-3">
-              <img src={logo} alt='jjkbd' className='w-50' />
+              <img src={logo} alt='jjkbd' className='w-75' />
             </a>
             <button className="navbar-toggler" data-toggle="collapse" type="button" data-target="#sab">
               <span className="navbar-toggler-icon"></span>
