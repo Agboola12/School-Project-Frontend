@@ -85,7 +85,7 @@ const Home = () => {
     return (
         <>
             <div >
-                <LandNavBar />
+                <LandNavBar/>
                 <div className="bg-light">
 
 
@@ -122,13 +122,13 @@ const Home = () => {
                     <div className='container mt-5'>
                         <div className='row'>
                             <div className='col-lg-9'>
-                                <h3>Benefits</h3>
+                                <h3>Take your next step</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget
-                                    elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget
-                                    habitasse in velit fringilla feugiat senectus in.
+                                With a diverse academic plan that attracts students from across the world, Adeleke University aims to share with all those who are interested in an excellent college education that they deserve.
                                 </p>
                             </div>
+
+                            
                             <div className='col-lg-3 text-right'>
                                 <button className='btn btn-white text-dark fw-bold text-right mt-5'>View All</button>
                             </div>
@@ -189,12 +189,11 @@ const Home = () => {
 
                     {/* end */}
                     {/* our testimonies */}
-                    <div className='container mt-4'>
+                    <div className='container mt-6'>
                         <div className='d-flex'>
                             <em className='text-left'>
-                                <h3>Our Testimonials</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur. Tempus tincidunt  etiam eget elit id imperdiet et.
-                                    Cras eu sit dignissim <br />lorem nibh et. Ac cum eget habitasse  in velit fringilla feugiat senectus in.</p>
+                                <h3>CAMPUS TOUR</h3>
+                                <p><iframe class="elementor-video" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="Adeleke University Campus TOUR" width="1300" height="360" src="https://www.youtube.com/embed/gR-O32fwZE4?controls=1&amp;rel=0&amp;playsinline=0&amp;modestbranding=0&amp;autoplay=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fadelekeuniversity.edu.ng&amp;widgetid=3" id="widget4"></iframe></p>
                             </em>
                             {/* <button className='btn btn bg-white text-dark fw-bold text-right mt-5 ml-auto'>View All</button> */}
                         </div>

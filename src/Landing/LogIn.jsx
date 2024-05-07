@@ -113,13 +113,19 @@ const LogIn = () => {
             </div>
 
             <div className="col-lg-6 order-lg-1 align-self-center p-2">
-              <h2 className="">Student Testimonials</h2>
-              <p>orem ipsum, dolor sit amet consectetur adipisicing elit. <br></br>Quam, nulla quae architecto voluptatem omnis voluptates similique facilis</p>
+              <h2 className="">MOTTO</h2>
+              <p>The motto of the university is ‘Education, Excellence and Character’ </p>
               <br></br> <br></br>
               <div className="card bg" >
                 <div className="card-body">
-                  <p className="card-title">The web design course provide solid foundation for me. The instructor <br></br> were knowledgeable and supportive and interesting learning.</p>
-                  <p className="card-text">environment was ongoing. I highly recommend it</p>
+
+                
+
+
+
+
+                  <p className="card-title">Education:- The experience that has formative effect on the mind, character or physical ability of an individual. It is the most fundamental building blocks for human development. <br></br> Excellence:- Eminence, a talent or quality that surpasses ordinary standard.</p>
+                  <p className="card-text">Character:- Distinctive quality that makes or distinguishes an individual.</p>
                   <div className="d-flex justify-content-between ">
                     <div>
                       <img src={image} alt="" />
@@ -127,7 +133,7 @@ const LogIn = () => {
 
                     </div>
                     <div>
-                      <button className="btn btn-light">Read Full Story</button>
+                      <button className="btn btn-light" >Read Full Story</button>
                     </div>
                   </div>
                 </div>
