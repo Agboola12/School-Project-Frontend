@@ -25,17 +25,17 @@ const LandNavBar = () => {
             <div className="collapse navbar-collapse" id="sab">
               <ul className="navbar-nav list-line mx-auto">
                 <li className="nav-item active list-line-item mr-5 ">
-                  <Link to="/" className="nav-link active text-center ">Home</Link>
+                  <Link to="/" className="nav-link active text-center fs-5  ">Home</Link>
                 </li>
                 <li className="nav-item dropdown list-line-item mr-5 " >
-                  <Link to="/about" className="nav-link active text-center">About Us </Link>
+                  <Link to="/about" className="nav-link active text-center fs-5 ">About Us </Link>
                 </li>
                 <li className="nav-item dropdown list-line-item mr-5 " >
-                  <Link to="/testimonies" className="nav-link active text-center">Feedback </Link>
+                  <Link to="/testimonies" className="nav-link active text-center fs-5 ">Feedback </Link>
                 </li>
 
                 <li className="nav-item dropdown list-line-item mr-5 " >
-                  <Link to="/contact" className='nav-link active text-center'>
+                  <Link to="/contact" className='nav-link active text-center fs-5 '>
                     Contact
                   </Link>
                 </li>
@@ -43,7 +43,7 @@ const LandNavBar = () => {
               <ul className="navbar-nav list-line ml-auto">
                 
                 <li className="nav-item active list-line-item mr-5 " >
-                  <Link to="/login" className='text-light nav-link text-center btn btn' style={{ backgroundColor: '#FF9500' }} >Login</Link>
+                  <Link to="/login" className='text-light nav-link text-center btn btn fs-5 ' style={{ backgroundColor: '#FF9500' }} >Login</Link>
                 </li>
               </ul>
 
