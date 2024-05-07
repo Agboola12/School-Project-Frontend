@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer text-white py-5" style={{ backgroundColor: "#222123" }}>
 <div className="container">
     <div className="row">
-        <div className="col-lg-3 mb-lg-0 mb-3">
+        <div className="col-lg-2 mb-lg-0 mb-3">
             <h6 className="text-medium text-uppercase text-white">
             <img src={logo} alt='ksdj' style={{width:'200px'}} />
             </h6>
@@ -25,7 +25,7 @@ const Footer = () => {
                 <li><Link to="mailto:registrar@adelekeuniversity.edu.ng" className="text-white text-decoration-none">registrar@adelekeuniversity.edu.ng</Link></li>
             </ul>
         </div>
-        <div className="col-lg-3 mb-lg-0 mb-3">
+        <div className="col-lg-4 mb-lg-0 mb-3">
             <h6 className="text-medium text-uppercase text-white">CALL NOW</h6>
             <p className="mb-0">+234 806 001 9561, +234 906702 3394,</p>
             <p>+234 096 337 0367</p>
