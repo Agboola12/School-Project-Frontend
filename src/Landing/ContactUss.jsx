@@ -23,9 +23,10 @@ const ContactUs = () => {
             </div>
             <div className='col-lg-6 text-right'>
               <p>
-              Welcome to Adeleke University, Ede, where we offer one of the most affordable but best quality education in Nigeria,
-               with unique features like, scholarship opportunities, flexibility in payment of fees, acquisition of entrepreneurial skills,
-                high quality teaching, research and innovative learning.
+                Welcome to SkillBridge's Pricing Plan page, where we offer two comprehensive options to cater to your needs:
+                Free and Pro. We believe in providing flexible and affordable pricing options for our services. Whether
+                you're an individual looking to enhance your skills or a business seeking professional development solutions,
+                we have a plan that suits you. Explore our pricing options below and choose the one that best fits your requirements.
               </p>
             </div>
           </div>
@@ -84,12 +85,12 @@ const ContactUs = () => {
             <div className="col-lg-4">
               <div className='bg-light p-3 text-center rounded-lg'> 
                 <i className=' text-center mx-auto fa fa-envelope'></i>
-                <p>admissions@adelekeuniversity.edu.ng</p>
+                <p>support@skillbridge</p>
               </div>
 
               <div className='bg-light p-3 mt-3 text-center rounded-sm'> 
                 <i className='fa fa-phone'></i>              
-                <p>+234 806 001 9561</p>
+                <p>+91 00000 00000</p>
               </div>
 
               <div className='bg-light p-3 mt-3 text-center rounded-sm '>
